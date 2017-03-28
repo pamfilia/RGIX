@@ -1,1 +1,1 @@
-# front-end
+# RGIX Front-end
