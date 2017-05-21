@@ -1,35 +1,51 @@
 let path = require('path');
 let webpack = require('webpack');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
-let extractCSS = new ExtractTextPlugin('../styles/styles.css');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CheckerPlugin } = require('awesome-typescript-loader');
+let pathsToClean = [
+    'dist/script/*.*',
+];
+let cleanOptions = {
+    verbose: true,
+    dry: false
+}
 module.exports = {
-    target: 'web',
-    watch: true,
+
     entry: {
-        bundle: [path.resolve(__dirname, 'src/script/pages') + '/index.js'],
-        vendors: ['react', 'jquery']
+        main: './src/script/pages/index.tsx',
+        vendor: 'jquery'
     },
     output: {
-        path: path.resolve(__dirname, 'dist/script'),
-        filename: '[name].js'
+        filename: '[name].[chunkhash].js',
+        path: path.resolve(__dirname, 'dist/script')
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.json']
     },
     module: {
-        rules: [{
-            test: /\.(js)$/,
-            loaders: ["babel-loader"],
-            exclude: [
-                path.resolve(__dirname, "/node_modules/"),
-                path.resolve(__dirname, "/gulp-tasks/"),
-            ],
-        }
+        rules: [
+            { test: /\.tsx?$/, loader: ['awesome-typescript-loader']},
+            { test: /\.js$/, enforce: "pre", loader: "source-map-loader" }
         ]
     },
     plugins: [
-        extractCSS,
+        new CleanWebpackPlugin(pathsToClean, cleanOptions),
+        new CheckerPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: function (module) {
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest'
+        }),
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            "window.jQuery": "jquery"
+            $: 'jquery'
         })
-    ]
+    ],
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM'
+    },
 };
