@@ -10,11 +10,11 @@ let cleanOptions = {
     dry: false
 }
 module.exports = {
-
     entry: {
         main: './src/script/pages/index.tsx',
         vendor: 'jquery'
     },
+    devtool: 'source-map',
     output: {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist/script')
@@ -25,7 +25,7 @@ module.exports = {
     module: {
         rules: [
             { test: /\.tsx?$/, loader: ['awesome-typescript-loader']},
-            { test: /\.js$/, enforce: "pre", loader: "source-map-loader" }
+            { enforce: 'pre',test: /\.js$/, loader: "source-map-loader" }
         ]
     },
     plugins: [

@@ -3,7 +3,7 @@
  */
 import * as React from "react";
 
-export class Header extends React.Component<any,any> {
+export default class Header extends React.Component<any,any> {
     render() {
         return (
             <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
