@@ -8,3 +8,5 @@ class App extends React.Component<any,any>
         return(<Header/>);
     }
 }
+
+ReactDOM.render(<App/>,document.querySelector('.container-fluid'));

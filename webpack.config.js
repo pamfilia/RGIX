@@ -43,9 +43,5 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery'
         })
-    ],
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
-    },
+    ]
 };
