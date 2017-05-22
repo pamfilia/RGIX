@@ -12,7 +12,7 @@ let cleanOptions = {
 module.exports = {
     entry: {
         main: './src/script/pages/index.tsx',
-        vendor: 'jquery'
+        vendor: ['jquery','tether','bootstrap']
     },
     devtool: 'source-map',
     output: {
@@ -24,8 +24,8 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.tsx?$/, loader: ['awesome-typescript-loader']},
-            { enforce: 'pre',test: /\.js$/, loader: "source-map-loader" }
+            { test: /\.tsx?$/, loader: ['awesome-typescript-loader'] },
+            { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }
         ]
     },
     plugins: [
@@ -41,7 +41,12 @@ module.exports = {
             name: 'manifest'
         }),
         new webpack.ProvidePlugin({
-            $: 'jquery'
+            $: "jquery",
+            jquery: "jquery",
+            "window.jQuery": "jquery",
+            jQuery: "jquery",
+            "window.Tether": 'tether',
+            "Tether": 'tether'
         })
     ]
 };
