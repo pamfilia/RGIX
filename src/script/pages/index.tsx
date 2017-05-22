@@ -1,14 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import {BaseComponent} from "../common/BaseComponent";
 import Header from "../components/header";
+import Login from "../components/login/login";
 
-class App extends BaseComponent<any,any>
-{
-    render() {
-        return(<Header/>);
-    }
-}
 
-ReactDOM.render(<App/>,document.querySelector('.container-fluid')); 
+ReactDOM.render(<Header/>,document.querySelector('.header'));
+ReactDOM.render(<Login/>,document.querySelector('.login'));
