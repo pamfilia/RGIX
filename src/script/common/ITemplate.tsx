@@ -1,3 +1,3 @@
 export interface ITemplate{
-    renderTemplate():any;
+    renderTemplate():JSX.Element;
 }
