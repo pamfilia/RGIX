@@ -1,7 +1,7 @@
 import * as React from "react";
-import { ITemplate } from "../common/ITemplate";
+import { ITemplate } from "../../common/ITemplate";
 
-export  class HeaderTemplate implements ITemplate {
+export  class TopMenuTemplate implements ITemplate {
     renderTemplate=():JSX.Element=> {
         return (<nav className="navbar navbar-toggleable-md navbar-light bg-faded">
                 <button className="navbar-toggler navbar-toggler-right" type="button"

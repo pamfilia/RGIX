@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import Header from "../components/header";
+import TopMenu from "../components/header/topMenu";
 import Login from "../components/login/login";
 
 
-ReactDOM.render(<Header/>,document.querySelector('.header'));
+ReactDOM.render(<TopMenu/>,document.querySelector('.header'));
 ReactDOM.render(<Login/>,document.querySelector('.login'));
