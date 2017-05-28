@@ -9,12 +9,16 @@
         "allowJs": true,
         "pretty": true
     },
+    "awesomeTypescriptLoaderOptions": {
+        "silent": true,
+        "usePrecompiledFiles":true
+    },
     "include": [
         "./src/**/*"
     ],
     "exclude": [
-    "node_modules",
-    "**/*.spec.ts?",
-    "dist"
-  ]
+        "node_modules",
+        "**/*.spec.ts?",
+        "dist"
+    ]
 }

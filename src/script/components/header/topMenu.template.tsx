@@ -3,7 +3,7 @@ import { ITemplate } from "../../common/ITemplate";
 
 export  class TopMenuTemplate implements ITemplate {
     renderTemplate=():JSX.Element=> {
-        return (<nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+        return (<nav className="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
                 <button className="navbar-toggler navbar-toggler-right" type="button"
                         data-toggle="collapse"
                         data-target="#navbarSupportedContent"

@@ -15,11 +15,22 @@ export class LoginTemplate implements ITemplate {
                         </div>
                     </div>
                     <div className="col">
-                        <input type="password" className="form-control" id="user.password" placeholder="Password" />
+                        <div className="input-group">
+                              <span className="input-group-addon"><div className="glyphicon glyphicon-lock"></div></span>                              
+                            <input type="password" className="form-control" id="user.password" placeholder="Password" />
+                        </div>
                     </div>
                     <div className="w-100"></div>
-                    <div className="col">Remind My Password</div>
-                    <div className="col">Login</div>
+                    <div className="col">
+                        <button className="btn btn-outline-primary">
+                            Remind my password
+                        </button>
+                    </div>
+                    <div className="col">
+                        < button className="btn btn-outline-primary">
+                            Login <span className="badge badge-success">0</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         );

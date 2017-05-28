@@ -12,7 +12,7 @@ let cleanOptions = {
 module.exports = {
     entry: {
         main: './src/script/pages/index.tsx',
-        vendor: ['jquery','tether','bootstrap']
+        vendor: ['jquery', 'tether', 'bootstrap']
     },
     devtool: 'source-map',
     output: {
@@ -25,12 +25,13 @@ module.exports = {
     module: {
         rules: [
             { test: /\.tsx?$/, loader: ['awesome-typescript-loader'] },
+            { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader', },
             { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(pathsToClean, cleanOptions),
         new CheckerPlugin(),
+        new CleanWebpackPlugin(pathsToClean, cleanOptions),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function (module) {
