@@ -6,6 +6,6 @@ import {LoginTemplate} from "./login.template";
 
 export default class Login extends BaseComponent<any, any> {
     render() {
-        return new LoginTemplate().renderTemplate();
+        return new LoginTemplate().renderTemplate(null);
     }
 }

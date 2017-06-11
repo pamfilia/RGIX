@@ -1,8 +1,7 @@
 import * as React from "react";
-import { ITemplate } from "../../common/ITemplate";
 
-export class ForgetPasswordTemplate implements ITemplate {
-    renderTemplate = (): JSX.Element => {
+export class ForgetPasswordTemplate implements mgt.rgix.template.ITemplate<any> {
+    renderTemplate = (p:any): JSX.Element => {
         return (<span>Enter your email</span> );
     }
 }

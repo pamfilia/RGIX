@@ -1,8 +1,7 @@
 import * as React from "react";
-import { ITemplate } from "../../common/ITemplate";
 
-export class LoginTemplate implements ITemplate {
-    renderTemplate = (): JSX.Element => {
+export class LoginTemplate implements mgt.rgix.template.ITemplate<any> {
+    renderTemplate = (p:any): JSX.Element => {
         return (
             <div className="container">
                 <div className="row">

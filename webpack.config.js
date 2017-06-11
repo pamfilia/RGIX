@@ -6,12 +6,13 @@ let pathsToClean = [
     'dist/script/*.*',
 ];
 let cleanOptions = {
-    verbose: true,
+    verbose: false,
     dry: false
 }
 module.exports = {
     entry: {
         main: './src/script/pages/index.tsx',
+        reports: './src/script/pages/reports.tsx',
         vendor: ['jquery', 'tether', 'bootstrap']
     },
     devtool: 'source-map',

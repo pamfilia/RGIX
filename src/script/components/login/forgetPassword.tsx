@@ -6,6 +6,6 @@ import { ForgetPasswordTemplate } from "./forgetPassword.template";
 
 export default class ForgetPassword extends BaseComponent<any, any> {
     render() {
-        return new ForgetPasswordTemplate().renderTemplate();
+        return new ForgetPasswordTemplate().renderTemplate(null);
     }
 }

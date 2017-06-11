@@ -14,18 +14,23 @@
   },
   "homepage": "https://github.com/pamphylia/front-end#readme",
   "devDependencies": {
+    "@types/jquery": "^2.0.46",
+    "@types/node": "^7.0.29",
     "awesome-typescript-loader": "^3.1.3",
     "clean-webpack-plugin": "^0.1.16",
-    "file-loader": "^0.11.1",
+    "cli-clear": "^1.0.4",
+    "file-loader": "^0.11.2",
     "gulp": "^3.9.1",
-    "require-dir": "^0.3.1",
+    "require-dir": "^0.3.2",
     "source-map-loader": "^0.2.1",
-    "typescript": "^2.3.2",
-    "webpack": "^2.5.1"
+    "typescript": "^2.3.4",
+    "webpack": "^2.6.1"
   },
   "dependencies": {
-    "@types/react": "^15.0.24",
+    "@types/amcharts": "0.0.40",
+    "@types/react": "^15.0.27",
     "@types/react-dom": "^15.5.0",
+    "amcharts3": "github:amcharts/amcharts3",
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
