@@ -19,7 +19,7 @@ export class TopMenuTemplate implements mgt.rgix.template.ITemplate<mgt.rgix.pro
                 <ul className="navbar-nav mr-auto">
                     {data.menuItems.map((m, i) => {
                         return (
-                            <li key={i.toString()} className={"nav-item" + (m.customClass == undefined ? '' : ' ' + m.customClass)}>
+                            <li key={i.toString()} className={"nav-item" + (m.CustomClass == undefined ? '' : ' ' + m.CustomClass)}>
                                 <a className="nav-link" href={m.Url}>{m.Text}</a>
                             </li>
                         );

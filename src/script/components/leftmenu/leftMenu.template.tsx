@@ -1,13 +1,17 @@
 import * as React from "react";
+import { LinkNavigationItem } from "../../common/component/linkNavigationItem";
 
-export class LeftMenuTemplate implements mgt.rgix.template.ITemplate<any> {
-  renderTemplate = (p: any): JSX.Element => {
+export class LeftMenuTemplate implements mgt.rgix.template.ITemplate<mgt.rgix.prop.ILeftMenuProps> {
+  renderTemplate = (data: mgt.rgix.prop.ILeftMenuProps): JSX.Element => {
+    const arr = data.menuItems.map((e, i) =>
+      <LinkNavigationItem
+        key={i.toString()}
+        Text={e.Text}
+        Url="#"
+        CustomClass={e.CustomClass} />);
     return (
       <nav className="col-sm-3 col-md-2 hidden-xs-down pt-3 bg-faded sidebar">
-        <a className="nav-link active" href="#">New Report</a>
-        <a className="nav-link" href="#">Search</a>
-        <a className="nav-link" href="#">Track</a>
-        <a className="nav-link disabled" href="#">Disabled</a>
+        {arr}
       </nav>
     );
   }

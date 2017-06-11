@@ -5,15 +5,16 @@ const moment = require("moment");
 const clear = require('cli-clear');
 
 gulp.task('webpack', function () {
-    console.log('[' + moment().format('LTS') + '] Webpack started watching.');
-    webpack(webpackConfig).watch({ aggregateTimeout: 0, poll: 5000 }, (err, stats) => {
+    webpack(webpackConfig).watch({
+        aggregateTimeout: 0,
+        poll: 5000
+    }, (err, stats) => {
         clear();
         console.log('[' + moment().format('LTS') + '] Webpack watching...');
         if (stats.hasErrors() || stats.hasWarnings()) {
             console.log(stats.toString('errors-only'));
             console.log('[' + moment().format('LTS') + '] Webpack build failed!');
-        }
-        else {
+        } else {
             console.log(stats.toString({
                 children: false,
                 assets: false,

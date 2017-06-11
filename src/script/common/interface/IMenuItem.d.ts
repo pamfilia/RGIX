@@ -1,7 +1,7 @@
 declare namespace mgt.rgix.menu {
     export interface IMenuItem{
         Text:string,
-        customClass:string,
+        CustomClass:string,
         Url:string
     }
 }
