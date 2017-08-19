@@ -14,29 +14,29 @@
   },
   "homepage": "https://github.com/pamphylia/front-end#readme",
   "devDependencies": {
-    "@types/jquery": "^2.0.46",
-    "@types/node": "^7.0.29",
-    "awesome-typescript-loader": "^3.1.3",
+    "@types/es6-promise": "0.0.32",
+    "@types/jquery": "^3.2.11",
+    "@types/node": "^8.0.24",
+    "awesome-typescript-loader": "^3.2.3",
     "clean-webpack-plugin": "^0.1.16",
     "cli-clear": "^1.0.4",
     "file-loader": "^0.11.2",
     "gulp": "^3.9.1",
     "require-dir": "^0.3.2",
     "source-map-loader": "^0.2.1",
-    "typescript": "^2.3.4",
-    "webpack": "^2.6.1"
+    "typescript": "^2.5.1",
+    "webpack": "^3.5.5"
   },
   "dependencies": {
-    "@types/amcharts": "0.0.40",
-    "@types/react": "^15.0.27",
-    "@types/react-dom": "^15.5.0",
-    "amcharts3": "github:amcharts/amcharts3",
-    "bootstrap": "^4.0.0-alpha.6",
+    "@types/react": "^16.0.2",
+    "@types/react-dom": "^15.5.3",
+    "bootstrap": "^4.0.0-beta",
+    "es6-promise": "^4.1.1",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "redux": "^3.6.0",
-    "tether": "^1.4.0"
+    "popper.js": "^1.12.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "redux": "^3.7.2"
   }
 }

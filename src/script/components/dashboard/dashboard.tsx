@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@types/amcharts/index.d.ts" />
 /**
  * Created by mehmetgani on 26/03/2017.
  */

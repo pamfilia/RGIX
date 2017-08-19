@@ -3,11 +3,25 @@
         "outDir": "./dist/script",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "commonjs",
         "target": "es5",
         "jsx": "react",
         "allowJs": true,
-        "pretty": true
+        "pretty": true,
+        "module": "esnext", 
+        "lib": [
+            "dom",
+            "es5",
+            "scripthost",
+            "es2015.promise"
+        ],    
+        "typeRoots": [
+            "./node_modules/@types"
+        ],                                        
+        "types": [
+            "node",
+            "react",
+            "react-dom"
+        ]    
     },
     "awesomeTypescriptLoaderOptions": {
         "silent": true,

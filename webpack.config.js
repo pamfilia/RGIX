@@ -1,7 +1,8 @@
 let path = require('path');
 let webpack = require('webpack');
 let CleanWebpackPlugin = require('clean-webpack-plugin');
-const { CheckerPlugin } = require('awesome-typescript-loader');
+let UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+let { CheckerPlugin } = require('awesome-typescript-loader');
 let pathsToClean = [
     'dist/script/*.*',
 ];
@@ -11,9 +12,8 @@ let cleanOptions = {
 }
 module.exports = {
     entry: {
-        main: './src/script/pages/index.tsx',
-        reports: './src/script/pages/reports.tsx',
-        vendor: ['jquery', 'tether', 'bootstrap']
+        dashboard: './src/script/pages/index.tsx',
+        reports: './src/script/pages/reports.tsx'
     },
     devtool: 'source-map',
     output: {
@@ -36,19 +36,42 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function (module) {
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest'
+                return module.context && module.context.indexOf("node_modules") !== -1;
+              }
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
             jquery: "jquery",
             "window.jQuery": "jquery",
             jQuery: "jquery",
-            "window.Tether": 'tether',
-            "Tether": 'tether'
-        })
+            Popper: ['popper.js', 'default']
+        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         sequences: true,  // join consecutive statemets with the “comma operator”
+        //         properties: true,  // optimize property access: a["foo"] → a.foo
+        //         dead_code: true,  // discard unreachable code
+        //         drop_debugger: true,  // discard “debugger” statements
+        //         unsafe: false, // some unsafe optimizations (see below)
+        //         conditionals: true,  // optimize if-s and conditional expressions
+        //         comparisons: true,  // optimize comparisons
+        //         evaluate: true,  // evaluate constant expressions
+        //         booleans: true,  // optimize boolean expressions
+        //         loops: true,  // optimize loops
+        //         unused: true,  // drop unused variables/functions
+        //         hoist_funs: true,  // hoist function declarations
+        //         hoist_vars: false, // hoist variable declarations
+        //         if_return: true,  // optimize if-s followed by return/continue
+        //         join_vars: true,  // join var declarations
+        //         cascade: true,  // try to cascade `right` into `left` in sequences
+        //         side_effects: true,  // drop side-effect-free statements
+        //         warnings: false  // warn about potentially dangerous optimizations/code
+        //     },
+        //     mangle: { builtins: true },
+        //     sourceMap: true,
+        //     output: {
+        //         comments: false
+        //     }
+        // })
     ]
 };
