@@ -3,7 +3,7 @@ import * as React from "react";
 export class TopMenuTemplate implements mgt.rgix.template.ITemplate<mgt.rgix.prop.ITopMenuProps> {
     renderTemplate = (data: mgt.rgix.prop.ITopMenuProps): JSX.Element => {
         return (<nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a className="navbar-brand" href="#"><img src="../../src/assets/rgix-solid.svg" width="30" height="30" className="d-inline-block align-top" alt="" />
+                <a className="navbar-brand" href="./index.html"><img src="../../src/assets/rgix-solid.svg" width="30" height="30" className="d-inline-block align-top" alt="" />
                     {data.brandItemText}</a>
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
