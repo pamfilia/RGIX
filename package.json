@@ -15,8 +15,8 @@
   "homepage": "https://github.com/pamphylia/front-end#readme",
   "devDependencies": {
     "@types/es6-promise": "0.0.32",
-    "@types/jquery": "^3.2.11",
-    "@types/node": "^8.0.24",
+    "@types/jquery": "^3.2.12",
+    "@types/node": "^8.0.26",
     "awesome-typescript-loader": "^3.2.3",
     "clean-webpack-plugin": "^0.1.16",
     "cli-clear": "^1.0.4",
@@ -24,17 +24,17 @@
     "gulp": "^3.9.1",
     "require-dir": "^0.3.2",
     "source-map-loader": "^0.2.1",
-    "typescript": "^2.5.1",
+    "typescript": "^2.5.2",
     "webpack": "^3.5.5"
   },
   "dependencies": {
-    "@types/react": "^16.0.2",
-    "@types/react-dom": "^15.5.3",
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
     "bootstrap": "^4.0.0-beta",
     "es6-promise": "^4.1.1",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
-    "popper.js": "^1.12.3",
+    "popper.js": "^1.12.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "redux": "^3.7.2"
