@@ -1,5 +1,4 @@
 sudo: enabled
-
 language: node_js
 
 cache:
@@ -9,5 +8,7 @@ cache:
 
 before_script:
   - cd front-end
+  - npm install
+  - npm install -g gulp-cli
 
-script: yarn start 
+script: gulp
