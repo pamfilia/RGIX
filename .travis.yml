@@ -2,17 +2,17 @@ dist: trusty
 sudo: required
 language: node_js
 node_js:
-  - "node"
-
+- node
 cache:
   yarn: true
   directories:
-    - "node_modules"
-
+  - node_modules
 before_script:
-  - cd front-end
-  - yarn install
-  - yarn global add webpack
-  - yarn global add gulp-cli
-
-script: yarn start 
+- cd front-end
+- yarn install
+- yarn global add webpack
+- yarn global add gulp-cli
+script: yarn start
+notifications:
+  slack:
+    secure: WeSMpqMdQVyLXurL8yuiD6hTZrRekjO6WeVQTPv9Qp4I4Y+fPWIJDvzeEfOufeKlPhVUoIiVgLaqu03khzr6in1rbxmkv5LTTr6jcYmEtyVtmawv6QZVtkDGAn7+UNJKEIkUMi14sHAGvCOu/RLvDH5PNjdoIlEybP83dx22Bf6yk15zUfr/Jdhr3YmkqPVBVR8qIrVduRF7CROgtNkZiYAQ/AMTMmbK0/s1O80L+n49ckcHPWBKvY+G7dNhGwr0lgWuqfDpSRS5iZtdXjbHj4BrV+Ks+TEaFbWamGQELAGZ+4RUTPpVSbF2VX3VEd9i3c+xR11TiedQwuhmFKC8bS1s2LYspnvn2KXOZKZKNMU9/wzYlEE5NggbKA09MFBu7FolZ95cs+BtC63JIyzcZ1aw/nzZr4nq+Ra0XRv3+5eHEudAuQAZa/h0Rx82LoN/kgZ94zTJ/waVVtZn7oTmUFUSi5i7M0nGTxzNYf7PERtGsaYGAEWcn0KGY/PB9odVTu5dECGL6ijI4/0EB9monayu8BhASyT1TVG5HzQkoa/UmG35XyXExPnKV3Nm540wQ0UZzm9adDL/UQenC+i+jfL4gihuv3PUqFgnzU7LVQ800Qi1SXmmM9bJHS9JcnuAAb9jmGQYwekQ3eDq888J0jKv0TAfrgo9/055mstO/+Y=
