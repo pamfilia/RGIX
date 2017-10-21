@@ -37,8 +37,7 @@ ehthumbs.db
 Thumbs.db
 
 # Node Modules
-node_modules/
+front-end/node_modules/
 
 #Custom Folders
-dist/
-.idea/
+front-end/dist/
