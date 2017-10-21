@@ -1,5 +1,8 @@
-sudo: enabled
+dist: trusty
+sudo: required
 language: node_js
+node_js:
+  - "node"
 
 cache:
   yarn: true
@@ -8,7 +11,7 @@ cache:
 
 before_script:
   - cd front-end
-  - npm install
+  - npm install -g webpack
   - npm install -g gulp-cli
 
-script: gulp
+script: yarn start 
