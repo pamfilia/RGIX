@@ -9,7 +9,5 @@ cache:
 
 before_script:
   - cd front-end
-  - npm install -g webpack
-  - npm install -g gulp-cli
 
 script: yarn start 
