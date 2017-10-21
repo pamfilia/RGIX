@@ -1,7 +1,7 @@
 let path = require('path');
 let webpack = require('webpack');
 let CleanWebpackPlugin = require('clean-webpack-plugin');
-let UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+//let UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 let { CheckerPlugin } = require('awesome-typescript-loader');
 let pathsToClean = [
     'dist/script/*.*',
