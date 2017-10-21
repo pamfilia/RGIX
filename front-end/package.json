@@ -1,42 +1,42 @@
 {
-  "name": "front-end",
+  "name": "rgix",
   "version": "1.0.0",
-  "description": "RGIX Front End Project",
+  "description": "RGIX Project",
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.config.js"
   },
-  "repository": "git+https://github.com/pamphylia/front-end.git",
-  "author": "Mehmet Gani Tombalak & Oktay Kahraman",
+  "repository": "git+https://github.com/mganitombalak/RGIX.git",
+  "author": "Mehmet Gani Tombalak",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/pamphylia/front-end/issues"
+    "url": "https://github.com/mganitombalak/front-end/issues"
   },
-  "homepage": "https://github.com/pamphylia/front-end#readme",
+  "homepage": "https://github.com/mganitombalak/front-end#readme",
   "devDependencies": {
-    "@types/es6-promise": "0.0.32",
-    "@types/jquery": "^3.2.12",
-    "@types/node": "^8.0.26",
+    "@types/es6-promise": "^0.0.33",
+    "@types/jquery": "^3.2.15",
+    "@types/node": "^8.0.46",
     "awesome-typescript-loader": "^3.2.3",
-    "clean-webpack-plugin": "^0.1.16",
+    "clean-webpack-plugin": "^0.1.17",
     "cli-clear": "^1.0.4",
-    "file-loader": "^0.11.2",
+    "file-loader": "^1.1.5",
     "gulp": "^3.9.1",
     "require-dir": "^0.3.2",
-    "source-map-loader": "^0.2.1",
-    "typescript": "^2.5.2",
-    "webpack": "^3.5.5"
+    "source-map-loader": "^0.2.2",
+    "typescript": "^2.5.3",
+    "webpack": "^3.8.1"
   },
   "dependencies": {
-    "@types/react": "^16.0.5",
-    "@types/react-dom": "^15.5.4",
+    "@types/react": "^16.0.16",
+    "@types/react-dom": "^16.0.2",
     "bootstrap": "^4.0.0-beta",
     "es6-promise": "^4.1.1",
     "jquery": "^3.2.1",
-    "moment": "^2.18.1",
+    "moment": "^2.19.1",
     "popper.js": "^1.12.5",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "redux": "^3.7.2"
   }
 }

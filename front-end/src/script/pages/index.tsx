@@ -14,8 +14,7 @@ class Index extends BaseComponent<undefined, undefined> {
         );
     }
 }
-ReactDOM.render(<TopMenu
-    brandItemText=""
+ReactDOM.render(<TopMenu brandItemText=""
     menuItems={[
         { CustomClass: undefined, Text: 'Reports', Url: './reports.html' },
         { CustomClass: undefined, Text: 'Samples', Url: './samples.html' },
