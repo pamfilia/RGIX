@@ -4,7 +4,8 @@
   "description": "RGIX Project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js"
+    "start": "webpack --config webpack.config.js",
+    "js-test": "karma start --config karma.conf.js"
   },
   "repository": "git+https://github.com/mganitombalak/RGIX.git",
   "author": "Mehmet Gani Tombalak",
@@ -15,6 +16,7 @@
   "homepage": "https://github.com/mganitombalak/RGIX#readme",
   "devDependencies": {
     "@types/es6-promise": "^0.0.33",
+    "@types/jasmine": "^2.6.2",
     "@types/jquery": "^3.2.16",
     "@types/node": "^8.0.47",
     "awesome-typescript-loader": "^3.3.0",
@@ -22,6 +24,16 @@
     "cli-clear": "^1.0.4",
     "file-loader": "^1.1.5",
     "gulp": "^3.9.1",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.5",
     "require-dir": "^0.3.2",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.6.1",

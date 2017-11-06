@@ -1,3 +1,6 @@
+/// <reference path="../../common/interface/IMenuItem.d.ts" />
+/// <reference path="../../common/interface/ITopMenuProps.d.ts" />
+
 import * as React from "react";
 
 export class TopMenuTemplate implements mgt.rgix.template.ITemplate<mgt.rgix.prop.ITopMenuProps> {

@@ -1,3 +1,4 @@
+/// <reference path="../../common/interface/ITemplate.d.ts" />
 import * as React from "react";
 
 export class DashboardTemplate implements mgt.rgix.template.ITemplate<any> {

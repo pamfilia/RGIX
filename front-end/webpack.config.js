@@ -15,19 +15,19 @@ module.exports = {
         dashboard: './src/script/pages/index.tsx',
         reports: './src/script/pages/reports.tsx'
     },
-    devtool: 'source-map',
+    devtool: '#source-map',
     output: {
         filename: '[name].js',//[chunkhash]
-        path: path.resolve(__dirname, 'dist/script')
+        path: path.resolve('./dist/script')
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json']
     },
     module: {
         rules: [
-            { test: /\.tsx?$/, loader: ['awesome-typescript-loader'] },
+            { test: /\.(ts|tsx)?$/, loader: ['awesome-typescript-loader'] },
             { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader', },
-            { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }
+            { enforce: 'pre', test: /\.(ts|tsx)$/, loader: "source-map-loader" }
         ]
     },
     plugins: [

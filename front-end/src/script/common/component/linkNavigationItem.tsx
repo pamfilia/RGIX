@@ -1,3 +1,6 @@
+/// <reference path="../interface/IMenuItem.d.ts" />
+/// <reference path="../interface/ILeftMenuProps.d.ts" />
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BaseComponent } from "./baseComponent";

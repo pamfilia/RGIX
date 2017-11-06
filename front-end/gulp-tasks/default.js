@@ -1,3 +1,3 @@
-const gulp = require('gulp');
+let gulp = require('gulp');
 gulp.task('default',['webpack'], function () {
 });
