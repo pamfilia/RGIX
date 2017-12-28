@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.config.js",
-    "js-test": "karma start --config karma.conf.js"
+    "test": "karma start --config karma.conf.js"
   },
   "repository": "git+https://github.com/mganitombalak/RGIX.git",
   "author": "Mehmet Gani Tombalak",
