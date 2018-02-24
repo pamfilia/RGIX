@@ -15,6 +15,8 @@
   },
   "homepage": "https://github.com/mganitombalak/RGIX#readme",
   "devDependencies": {
+    "@types/react": "^16.0.20",
+    "@types/react-dom": "^16.0.2",
     "@types/es6-promise": "^0.0.33",
     "@types/jasmine": "^2.6.2",
     "@types/jquery": "^3.2.16",
@@ -40,8 +42,6 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
-    "@types/react": "^16.0.20",
-    "@types/react-dom": "^16.0.2",
     "bootstrap": "^4.0.0-beta",
     "es6-promise": "^4.1.1",
     "jquery": "^3.2.1",
