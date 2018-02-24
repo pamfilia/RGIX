@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xunit;
 
 namespace OSGB.Api.Tests
@@ -9,12 +8,12 @@ namespace OSGB.Api.Tests
         [Fact]
         public void ShouldReturnStringArray()
         {
-            var controller = new OSGB.Api.Controllers.ValuesController();
+            var controller = new Controllers.ValuesController();
 
             //Given
-            IEnumerable<string> expected = new string[] { "value1", "value2" };
+            var expected = new string[] { "value1", "value2" };
             //When
-            IEnumerable<string> actual = controller.Get();
+            var actual = controller.Get();
             //Then
             Assert.Equal(expected, actual);
         }

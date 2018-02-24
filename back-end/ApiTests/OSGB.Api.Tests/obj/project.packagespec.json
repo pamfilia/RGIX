@@ -1,0 +1,51 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/home/mganitombalak/GitHub/RGIX/back-end/ApiTests/OSGB.Api.Tests/OSGB.Api.Tests.csproj",
+    "projectName": "OSGB.Api.Tests",
+    "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/ApiTests/OSGB.Api.Tests/OSGB.Api.Tests.csproj",
+    "outputPath": "/home/mganitombalak/GitHub/RGIX/back-end/ApiTests/OSGB.Api.Tests/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.0"
+    ],
+    "frameworks": {
+      "netcoreapp2.0": {
+        "projectReferences": {
+          "/home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/OSGB.Api.csproj": {
+            "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/OSGB.Api.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.0.5, )",
+          "autoReferenced": true
+        },
+        "xunit": {
+          "target": "Package",
+          "version": "[2.3.1, )"
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}
