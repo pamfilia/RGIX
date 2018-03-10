@@ -1,0 +1,26 @@
+dist: trusty
+matrix:
+  include:
+    - language: node_js
+      node_js:
+      - node
+      cache:
+        yarn: true
+        directories:
+        - node_modules
+      before_script:
+        - npm install -g @angular/compiler-cli
+        - cd front-end/OSGB
+        - yarn install
+      script: yarn test
+    - language: csharp
+      mono: none
+      dotnet: 2.1.4
+      before_script:
+        - cd back-end
+      script:
+      - dotnet build
+      - cd ApiTests/OSGB.Api.Tests
+      - dotnet xunit
+notifications:
+    slack: aerotivelabs:wnHT2hFn1UgSUgViiBdLiga7#rgix-ci
