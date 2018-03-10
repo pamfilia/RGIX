@@ -41,3 +41,5 @@ front-end/node_modules/
 
 #Custom Folders
 front-end/dist/
+*.pdb
+*.nuget.cache
