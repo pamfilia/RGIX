@@ -1,0 +1,9 @@
+language: csharp
+mono: none
+dotnet: 2.1.4
+before_script:
+  - cd back-end
+script:
+ - dotnet build
+ - cd ApiTests/OSGB.Api.Tests
+ - dotnet xunit
