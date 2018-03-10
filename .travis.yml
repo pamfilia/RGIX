@@ -8,9 +8,10 @@ cache:
   directories:
   - node_modules
 before_script:
-- cd front-end
-- yarn install
-- yarn start
+  - npm install -g @angular/compiler-cli
+  - cd front-end/OSGB
+  - yarn install
+  - yarn test
 script: yarn run test
 notifications:
     slack: aerotivelabs:wnHT2hFn1UgSUgViiBdLiga7#rgix-ci
