@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/home/mganitombalak/GitHub/RGIX/back-end/ApiTests/OSGB.Api.Tests/OSGB.Api.Tests.csproj",
+    "projectUniqueName": "/home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/OSGB.Api.Tests.csproj",
     "projectName": "OSGB.Api.Tests",
-    "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/ApiTests/OSGB.Api.Tests/OSGB.Api.Tests.csproj",
-    "outputPath": "/home/mganitombalak/GitHub/RGIX/back-end/ApiTests/OSGB.Api.Tests/obj/",
+    "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/OSGB.Api.Tests.csproj",
+    "outputPath": "/home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/share/dotnet/sdk/NuGetFallbackFolder"

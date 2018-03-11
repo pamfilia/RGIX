@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
 
 namespace OSGB.Api.Tests
 {
-    public class ValuesControllerTests
+    public class NaceControllerTests
     {
         [Fact]
         public void ShouldReturnStringArray()

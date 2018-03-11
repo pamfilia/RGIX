@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace OSGB.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class NaceController : Controller
     {
         // GET api/values
         [HttpGet]

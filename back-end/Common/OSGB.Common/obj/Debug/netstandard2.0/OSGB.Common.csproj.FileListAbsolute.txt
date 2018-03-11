@@ -1,0 +1,8 @@
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/bin/Debug/netstandard2.0/OSGB.Common.deps.json
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/bin/Debug/netstandard2.0/OSGB.Common.dll
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/bin/Debug/netstandard2.0/OSGB.Common.pdb
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.csproj.CoreCompileInputs.cache
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.AssemblyInfoInputs.cache
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.AssemblyInfo.cs
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.dll
+/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.pdb
