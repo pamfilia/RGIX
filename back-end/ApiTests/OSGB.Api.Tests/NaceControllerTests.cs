@@ -8,7 +8,7 @@ namespace OSGB.Api.Tests
         [Fact]
         public void ShouldReturnStringArray()
         {
-            var controller = new Controllers.ValuesController();
+            var controller = new Controllers.NaceController();
 
             //Given
             var expected = new string[] { "value1", "value2" };
