@@ -20,7 +20,7 @@ matrix:
         - cd back-end
       script:
       - dotnet build
-      - cd ApiTests/OSGB.Api.Tests
+      - cd Tests/OSGB.Api.Tests
       - dotnet xunit
 notifications:
     slack: aerotivelabs:wnHT2hFn1UgSUgViiBdLiga7#rgix-ci
