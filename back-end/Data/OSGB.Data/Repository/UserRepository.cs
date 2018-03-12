@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
+using Microsoft.Azure.Documents.Linq;
 using OSGB.Common.Classes;
 using OSGB.Common.Enums;
 using OSGB.Common.Interfaces;
@@ -14,44 +16,69 @@ namespace OSGB.Data.Repository
 {
     public class UserRepository : BaseReporsitory<User, string>
     {
-        private IDocumentClient _documentClient;
+        private readonly IDocumentClient _documentClient;
 
         public UserRepository(IDocumentClient documentClient)
         {
             _documentClient = documentClient;
-            this.CollectionName = Collections.Users.ToString();
+            CollectionName = Collections.Users.ToString();
         }
 
-        public override IReturnResult<bool> Create(User newObject)
+        public override async Task<IReturnResult<bool>> Create(User newObject)
         {
-            throw new System.NotImplementedException();
+            return await Task.FromResult(new ReturnResult<bool> {ResultValue = false});
         }
 
-        public override IReturnResult<IEnumerable<User>> ReadAll()
+        public override async Task<IReturnResult<IEnumerable<User>>> ReadAll()
         {
-            throw new System.NotImplementedException();
+            var t = Task.Run(async () =>
+            {
+                var query = _documentClient.CreateDocumentQuery<User>(
+                        UriFactory.CreateDocumentCollectionUri(Const.DatabaseName, this.CollectionName),
+                        new FeedOptions {MaxItemCount = -1, EnableCrossPartitionQuery = true})
+                    .AsDocumentQuery();
+
+                var results = new List<User>();
+
+                while (query.HasMoreResults)
+                {
+                    results.AddRange(await query.ExecuteNextAsync<User>());
+                }
+
+                return results;
+            });
+
+            return new ReturnResult<IEnumerable<User>>
+            {
+                ResultValue = await t,
+                ResultType = ResultType.Success
+            };
         }
 
         public override async Task<IReturnResult<User>> ReadById(string id)
         {
-            return await Task.FromResult(new ReturnResult<User>
+            var t = Task.Run(() =>
             {
-                ResultValue = this._documentClient.CreateDocumentQuery<User>(
+                return _documentClient.CreateDocumentQuery<User>(
                         UriFactory.CreateDocumentCollectionUri(Const.DatabaseName, this.CollectionName),
                         new FeedOptions() {MaxItemCount = -1})
-                    .AsEnumerable().FirstOrDefault(f => f.Id == id),
-                ResultType = ResultType.Success
+                    .AsEnumerable().FirstOrDefault(f => f.Id == id);
             });
+            return new ReturnResult<User>
+            {
+                ResultValue = await t,
+                ResultType = ResultType.Success
+            };
+        }
+        
+        public override async Task<IReturnResult<bool>> Update(User newObject)
+        {
+            return await Task.FromResult(new ReturnResult<bool> {ResultValue = false});
         }
 
-        public override IReturnResult<bool> Update(User newObject)
+        public override async Task<IReturnResult<bool>> Delete(User newObject)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public override IReturnResult<bool> Delete(User newObject)
-        {
-            throw new System.NotImplementedException();
+            return await Task.FromResult(new ReturnResult<bool> {ResultValue = false});
         }
     }
 }

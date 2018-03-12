@@ -26,3 +26,5 @@
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Data.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Data.pdb
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Common.pdb
+/home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Measurement.dll
+/home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Measurement.pdb

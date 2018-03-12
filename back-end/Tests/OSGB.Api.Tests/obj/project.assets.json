@@ -4932,7 +4932,8 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.5",
-          "OSGB.Data": "1.0.0"
+          "OSGB.Data": "1.0.0",
+          "OSGB.Measurement": "1.0.0"
         },
         "compile": {
           "bin/placeholder/OSGB.Api.dll": {}
@@ -4966,6 +4967,19 @@
         },
         "runtime": {
           "bin/placeholder/OSGB.Data.dll": {}
+        }
+      },
+      "OSGB.Measurement/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1"
+        },
+        "compile": {
+          "bin/placeholder/OSGB.Measurement.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OSGB.Measurement.dll": {}
         }
       }
     }
@@ -12990,6 +13004,11 @@
       "type": "project",
       "path": "../../Data/OSGB.Data/OSGB.Data.csproj",
       "msbuildProject": "../../Data/OSGB.Data/OSGB.Data.csproj"
+    },
+    "OSGB.Measurement/1.0.0": {
+      "type": "project",
+      "path": "../../Measurement/OSGB.Measurement/OSGB.Measurement.csproj",
+      "msbuildProject": "../../Measurement/OSGB.Measurement/OSGB.Measurement.csproj"
     }
   },
   "projectFileDependencyGroups": {

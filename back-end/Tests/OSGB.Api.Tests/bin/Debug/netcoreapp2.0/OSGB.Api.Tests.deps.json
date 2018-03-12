@@ -3335,7 +3335,8 @@
       "OSGB.Api/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.5",
-          "OSGB.Data": "1.0.0"
+          "OSGB.Data": "1.0.0",
+          "OSGB.Measurement": "1.0.0"
         },
         "runtime": {
           "OSGB.Api.dll": {}
@@ -3356,6 +3357,14 @@
         },
         "runtime": {
           "OSGB.Data.dll": {}
+        }
+      },
+      "OSGB.Measurement/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1"
+        },
+        "runtime": {
+          "OSGB.Measurement.dll": {}
         }
       }
     }
@@ -5449,6 +5458,11 @@
       "sha512": ""
     },
     "OSGB.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OSGB.Measurement/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

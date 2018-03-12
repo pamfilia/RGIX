@@ -43,3 +43,11 @@ front-end/node_modules/
 front-end/dist/
 *.pdb
 *.nuget.cache
+back-end/Measurement/OSGB.Measurement/obj/
+back-end/Measurement/OSGB.Measurement/bin/
+back-end/Tests/OSGB.Api.Tests/obj/
+back-end/Tests/OSGB.Api.Tests/bin/
+back-end/Api/OSGB.Api/obj/
+back-end/Api/OSGB.Api/bin/
+back-end/Data/OSGB.Data/obj/
+back-end/Data/OSGB.Data/bin/

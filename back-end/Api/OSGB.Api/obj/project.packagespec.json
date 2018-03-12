@@ -17,6 +17,9 @@
         "projectReferences": {
           "/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/OSGB.Data.csproj": {
             "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/OSGB.Data.csproj"
+          },
+          "/home/mganitombalak/GitHub/RGIX/back-end/Measurement/OSGB.Measurement/OSGB.Measurement.csproj": {
+            "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Measurement/OSGB.Measurement/OSGB.Measurement.csproj"
           }
         }
       }

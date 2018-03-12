@@ -24,9 +24,12 @@ namespace OSGB.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+         
             services.AddScoped<IDocumentClient>(s =>
                 new DocumentClient(new Uri(Configuration["EndpointUri"]), Configuration["PrimaryKey"]));
             services.AddScoped<IRepository<User, string>, UserRepository>();
+            services.AddScoped<Measurement.Filters.MeasureFilter>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

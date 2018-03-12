@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OSGB.Common.Enums;
 using OSGB.Common.Extensions.Object;
@@ -8,6 +8,7 @@ using OSGB.Data.Entity;
 
 namespace OSGB.Api.Controllers
 {
+    [ServiceFilter(typeof(Measurement.Filters.MeasureFilter))]
     [Route("api/[controller]")]
     public class UserController : Controller
     {
@@ -20,19 +21,18 @@ namespace OSGB.Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<JsonResult> Get()
         {
-            return new string[] {"value1", "value2"};
+            var result = await _repository.ReadAll();
+            return Json(result.ResultType == ResultType.Success ? result.ResultValue : null);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(string id)
+        public async Task<JsonResult> Get(string id)
         {
-            var ts = DateTime.Now; 
-            var result = this._repository.ReadById(id);
-            var ts1 = DateTime.Now;
-            return result.Result.ResultType == ResultType.Success ? result.Result.ResultValue.ToJson()+"ts:" + (ts1-ts).Milliseconds +"ms": null;
+            var result =  await _repository.ReadById(id);
+            return Json(result.ResultType == ResultType.Success ? result.ResultValue : null);
         }
 
         // POST api/values

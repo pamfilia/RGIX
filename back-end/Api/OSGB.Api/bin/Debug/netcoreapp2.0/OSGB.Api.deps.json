@@ -25,7 +25,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.5",
           "Microsoft.NETCore.App": "2.0.5",
-          "OSGB.Data": "1.0.0"
+          "OSGB.Data": "1.0.0",
+          "OSGB.Measurement": "1.0.0"
         },
         "runtime": {
           "OSGB.Api.dll": {}
@@ -3922,6 +3923,17 @@
           "OSGB.Data.dll": {}
         }
       },
+      "OSGB.Measurement/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1"
+        },
+        "runtime": {
+          "OSGB.Measurement.dll": {}
+        },
+        "compile": {
+          "OSGB.Measurement.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.5": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.5",
@@ -6135,6 +6147,11 @@
       "sha512": ""
     },
     "OSGB.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OSGB.Measurement/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
