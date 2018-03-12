@@ -4944,7 +4944,7 @@
       },
       "OSGB.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "11.0.1"
         },
@@ -4957,7 +4957,7 @@
       },
       "OSGB.Data/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Microsoft.Azure.DocumentDB.Core": "1.9.1",
           "OSGB.Common": "1.0.0"
@@ -4973,7 +4973,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1"
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.1"
         },
         "compile": {
           "bin/placeholder/OSGB.Measurement.dll": {}

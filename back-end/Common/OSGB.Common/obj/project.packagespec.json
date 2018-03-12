@@ -6,13 +6,18 @@
     "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/OSGB.Common.csproj",
     "outputPath": "/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/",
     "projectStyle": "PackageReference",
+    "crossTargeting": true,
     "fallbackFolders": [
       "/usr/share/dotnet/sdk/NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
+      "netcoreapp2.0",
       "netstandard2.0"
     ],
     "frameworks": {
+      "netcoreapp2.0": {
+        "projectReferences": {}
+      },
       "netstandard2.0": {
         "projectReferences": {}
       }
@@ -24,6 +29,25 @@
     }
   },
   "frameworks": {
+    "netcoreapp2.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.0.0, )",
+          "autoReferenced": true
+        },
+        "Newtonsoft.Json": {
+          "target": "Package",
+          "version": "[11.0.1, )"
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    },
     "netstandard2.0": {
       "dependencies": {
         "NETStandard.Library": {

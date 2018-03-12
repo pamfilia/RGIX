@@ -7,8 +7,8 @@
 /home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/bin/Debug/netcoreapp2.0/OSGB.Data.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/bin/Debug/netcoreapp2.0/OSGB.Measurement.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/bin/Debug/netcoreapp2.0/OSGB.Data.pdb
-/home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/bin/Debug/netcoreapp2.0/OSGB.Measurement.pdb
 /home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/bin/Debug/netcoreapp2.0/OSGB.Common.pdb
+/home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/bin/Debug/netcoreapp2.0/OSGB.Measurement.pdb
 /home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/obj/Debug/netcoreapp2.0/OSGB.Api.csproj.CoreCompileInputs.cache
 /home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/obj/Debug/netcoreapp2.0/OSGB.Api.AssemblyInfoInputs.cache
 /home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/obj/Debug/netcoreapp2.0/OSGB.Api.AssemblyInfo.cs

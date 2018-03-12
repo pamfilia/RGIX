@@ -20,8 +20,8 @@
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Data.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Measurement.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Api.pdb
-/home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Data.pdb
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Measurement.pdb
+/home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Data.pdb
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/bin/Debug/netcoreapp2.0/OSGB.Common.pdb
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/obj/Debug/netcoreapp2.0/OSGB.Api.Tests.csproj.CoreCompileInputs.cache
 /home/mganitombalak/GitHub/RGIX/back-end/Tests/OSGB.Api.Tests/obj/Debug/netcoreapp2.0/OSGB.Api.Tests.AssemblyInfoInputs.cache

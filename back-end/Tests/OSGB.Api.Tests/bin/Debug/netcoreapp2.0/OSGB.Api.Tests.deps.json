@@ -3361,7 +3361,7 @@
       },
       "OSGB.Measurement/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1"
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.1"
         },
         "runtime": {
           "OSGB.Measurement.dll": {}

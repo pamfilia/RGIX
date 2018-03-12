@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices.ComTypes;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace OSGB.Measurement.Filters
