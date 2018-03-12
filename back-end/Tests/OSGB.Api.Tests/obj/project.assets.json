@@ -4932,6 +4932,7 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.5",
+          "Microsoft.NETCore.App": "2.0.5",
           "OSGB.Data": "1.0.0",
           "OSGB.Measurement": "1.0.0"
         },
@@ -13035,7 +13036,7 @@
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/mganitombalak/.config/NuGet/NuGet.Config"
+        "/home/mganitombalak/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
