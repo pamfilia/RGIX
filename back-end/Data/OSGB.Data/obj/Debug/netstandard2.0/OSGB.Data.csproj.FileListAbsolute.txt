@@ -1,10 +1,10 @@
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/bin/Debug/netstandard2.0/OSGB.Data.deps.json
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/bin/Debug/netstandard2.0/OSGB.Data.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/bin/Debug/netstandard2.0/OSGB.Data.pdb
+/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/bin/Debug/netstandard2.0/OSGB.Common.dll
+/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/bin/Debug/netstandard2.0/OSGB.Common.pdb
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/obj/Debug/netstandard2.0/OSGB.Data.csproj.CoreCompileInputs.cache
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/obj/Debug/netstandard2.0/OSGB.Data.AssemblyInfoInputs.cache
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/obj/Debug/netstandard2.0/OSGB.Data.AssemblyInfo.cs
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/obj/Debug/netstandard2.0/OSGB.Data.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/obj/Debug/netstandard2.0/OSGB.Data.pdb
-/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/bin/Debug/netstandard2.0/OSGB.Common.dll
-/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/bin/Debug/netstandard2.0/OSGB.Common.pdb

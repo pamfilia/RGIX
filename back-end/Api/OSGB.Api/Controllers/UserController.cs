@@ -32,7 +32,7 @@ namespace OSGB.Api.Controllers
         public async Task<JsonResult> Get(string id)
         {
             var result =  await _repository.ReadById(id);
-            return Json(result.ResultType == ResultType.Success ? result.ResultValue : null);
+            return result.ResultType == ResultType.Success ? Json(result.ResultValue) : Json(result.Errors);
         }
 
         // POST api/values
