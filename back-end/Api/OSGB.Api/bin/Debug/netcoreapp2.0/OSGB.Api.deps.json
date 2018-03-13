@@ -3924,6 +3924,13 @@
         }
       },
       "OSGB.Measurement/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1",
+          "Microsoft.AspNetCore.Http.Features": "2.0.1",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.0.2",
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.2",
+          "Microsoft.Extensions.Primitives": "2.0.0"
+        },
         "runtime": {
           "OSGB.Measurement.dll": {}
         },

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
 using OSGB.Common.Enums;
 
@@ -10,9 +11,10 @@ namespace OSGB.Common.Interfaces
         [JsonIgnore]
         IEnumerable<string> Errors { get;}
         void AddException(Exception ex);
+        void AddException(ModelStateDictionary ex);
         void AddException(string ex);
         ResultType ResultType { get; set; }
         T ResultValue { get; set; }
-        string HumanReadableMessage { get; set; }
+        List<string> HumanReadableMessage { get; set; }
     }
 }
