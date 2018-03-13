@@ -3,6 +3,10 @@
     public enum Collections
     {
         Users,
-        Roles
+        Roles,
+        Naces,
+        Profiles,
+        DangerLevels,
+        Company
     }
 }

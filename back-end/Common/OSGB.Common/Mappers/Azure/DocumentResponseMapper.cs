@@ -108,7 +108,6 @@ namespace OSGB.Common.Mappers.Azure
                     break;
                 case HttpStatusCode.OK:
                     return (ResultType.Success,v);
-                    break;
                 case HttpStatusCode.PartialContent:
                     break;
                 case HttpStatusCode.PaymentRequired:

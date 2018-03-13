@@ -1,4 +1,13 @@
-﻿$HEADER$namespace $NAMESPACE$
+﻿using System;
+using OSGB.Data.Common;
+
+namespace OSGB.Data.Entity
 {
-  public class $CLASS$ {$END$}
+    public class Role:IEntity
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public DateTime Created { get; set; }
+        public string Updated { get; set; }
+    }
 }

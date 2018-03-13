@@ -1,6 +1,6 @@
 ﻿namespace OSGB.Data.Constants
 {
-    public static class Const
+    public static class DatabaseInfo
     {
         public const string DatabaseName = "OSGB";
     }

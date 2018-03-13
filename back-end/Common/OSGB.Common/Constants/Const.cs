@@ -1,4 +1,12 @@
-﻿$HEADER$namespace $NAMESPACE$
+﻿namespace OSGB.Common.Constants
 {
-  public class $CLASS$ {$END$}
+    public static class HumanReadable
+
+    {
+        public const string Acknowledged = "Acknowledged";
+        public const string OopsSomethingWentWrong = "Oops!Something went wrong :(";
+        public const string RecordHasBeenCreated = "Record has been created.";
+        public const string RecordHasBeenUpdated = "Record has been updated.";
+        public const string RecordHasBeenDeleted = "Record has been deleted.";
+    }
 }

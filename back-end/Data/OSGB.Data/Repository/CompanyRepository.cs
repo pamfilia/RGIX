@@ -5,12 +5,12 @@ using OSGB.Data.Entity;
 
 namespace OSGB.Data.Repository
 {
-    public class CompanyController: BaseReporsitory<Company>
+    public class CompanyRepository:BaseReporsitory<Company>
     {
-        public CompanyController(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper) :
+        public CompanyRepository(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper) :
             base(documentClient, documentResponseMapper)
         {
-            CollectionName = Collections.Naces.ToString();
+            CollectionName = Collections.Company.ToString();
         }
 
     }

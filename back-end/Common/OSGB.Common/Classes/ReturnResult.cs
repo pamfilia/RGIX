@@ -30,5 +30,6 @@ namespace OSGB.Common.Classes
 
         public ResultType ResultType { get; set; }
         public T ResultValue { get; set; }
+        public string HumanReadableMessage { get; set; }
     }
 }
