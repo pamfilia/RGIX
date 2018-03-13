@@ -8533,49 +8533,44 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mgani\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/home/mganitombalak/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Data\\OSGB.Data\\OSGB.Data.csproj",
+      "projectUniqueName": "/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/OSGB.Data.csproj",
       "projectName": "OSGB.Data",
-      "projectPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Data\\OSGB.Data\\OSGB.Data.csproj",
-      "packagesPath": "C:\\Users\\mgani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Data\\OSGB.Data\\obj\\",
+      "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/OSGB.Data.csproj",
+      "packagesPath": "/home/mganitombalak/.nuget/packages/",
+      "outputPath": "/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/obj/",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\mgani\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "/home/mganitombalak/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0",
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Common\\OSGB.Common\\OSGB.Common.csproj": {
-              "projectPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Common\\OSGB.Common\\OSGB.Common.csproj"
+            "/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/OSGB.Common.csproj": {
+              "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/OSGB.Common.csproj"
             }
           }
         },
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Common\\OSGB.Common\\OSGB.Common.csproj": {
-              "projectPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Common\\OSGB.Common\\OSGB.Common.csproj"
+            "/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/OSGB.Common.csproj": {
+              "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/OSGB.Common.csproj"
             }
           }
         }
