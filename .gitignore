@@ -45,9 +45,9 @@ Thumbs.db
 **/obj/
 **/bin/
 *.suo
-back-end/Api/OSGB.Api/bin/
-back-end/Api/OSGB.Api/obj
-back-end/Common/OSGB.Common/obj/
-back-end/Data/OSGB.Data/obj/
-back-end/Tests/OSGB.Api.Tests/bin/
-back-end/Tests/OSGB.Api.Tests/obj/
+**/back-end/Api/OSGB.Api/bin/
+**/back-end/Api/OSGB.Api/obj
+**/back-end/Common/OSGB.Common/obj/
+**/back-end/Data/OSGB.Data/obj/
+**/back-end/Tests/OSGB.Api.Tests/bin/
+**/back-end/Tests/OSGB.Api.Tests/obj/
