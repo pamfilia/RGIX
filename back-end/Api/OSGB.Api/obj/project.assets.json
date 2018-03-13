@@ -7416,7 +7416,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.0.1": {
-      "sha512": "Rgwturmal/A4iD0kqWu0NYAjz7hBsioJGTCg3KzaKG9+r9jN7qbhX04L/AQvypaPyMxFfcWUelSby4ZKWxMoEA==",
+      "sha512": "/Kuy9nQ167n5ABQy787zge7LWvXaV37KC4aYSWAgv0Ptzp8Exn73dEZR/1JnY8R9rXayUTe7K28B3OQSjCx6iA==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.0.1",
       "files": [
@@ -12845,38 +12845,43 @@
     ]
   },
   "packageFolders": {
-    "/home/mganitombalak/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\mgani\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/OSGB.Api.csproj",
+      "projectUniqueName": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Api\\OSGB.Api\\OSGB.Api.csproj",
       "projectName": "OSGB.Api",
-      "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/OSGB.Api.csproj",
-      "packagesPath": "/home/mganitombalak/.nuget/packages/",
-      "outputPath": "/home/mganitombalak/GitHub/RGIX/back-end/Api/OSGB.Api/obj/",
+      "projectPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Api\\OSGB.Api\\OSGB.Api.csproj",
+      "packagesPath": "C:\\Users\\mgani\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Api\\OSGB.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/mganitombalak/.config/NuGet/NuGet.Config"
+        "C:\\Users\\mgani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/OSGB.Data.csproj": {
-              "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Data/OSGB.Data/OSGB.Data.csproj"
+            "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Data\\OSGB.Data\\OSGB.Data.csproj": {
+              "projectPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Data\\OSGB.Data\\OSGB.Data.csproj"
             },
-            "/home/mganitombalak/GitHub/RGIX/back-end/Measurement/OSGB.Measurement/OSGB.Measurement.csproj": {
-              "projectPath": "/home/mganitombalak/GitHub/RGIX/back-end/Measurement/OSGB.Measurement/OSGB.Measurement.csproj"
+            "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Measurement\\OSGB.Measurement\\OSGB.Measurement.csproj": {
+              "projectPath": "C:\\Users\\mgani\\GitHub\\RGIX\\back-end\\Measurement\\OSGB.Measurement\\OSGB.Measurement.csproj"
             }
           }
         }
@@ -12895,7 +12900,6 @@
             "version": "[2.0.5, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.5, )",
             "autoReferenced": true
