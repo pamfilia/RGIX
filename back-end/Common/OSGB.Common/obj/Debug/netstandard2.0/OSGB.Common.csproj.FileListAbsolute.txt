@@ -6,3 +6,12 @@
 /home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.AssemblyInfo.cs
 /home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.dll
 /home/mganitombalak/GitHub/RGIX/back-end/Common/OSGB.Common/obj/Debug/netstandard2.0/OSGB.Common.pdb
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\bin\Debug\netstandard2.0\OSGB.Common.deps.json
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\bin\Debug\netstandard2.0\OSGB.Common.dll
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\bin\Debug\netstandard2.0\OSGB.Common.pdb
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\obj\Debug\netstandard2.0\OSGB.Common.csproj.CoreCompileInputs.cache
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\obj\Debug\netstandard2.0\OSGB.Common.AssemblyInfoInputs.cache
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\obj\Debug\netstandard2.0\OSGB.Common.AssemblyInfo.cs
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\obj\Debug\netstandard2.0\OSGB.Common.dll
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\obj\Debug\netstandard2.0\OSGB.Common.pdb
+C:\Users\mgani\GitHub\RGIX\back-end\Common\OSGB.Common\obj\Debug\netstandard2.0\OSGB.Common.csprojResolveAssemblyReference.cache

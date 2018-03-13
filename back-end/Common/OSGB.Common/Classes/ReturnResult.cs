@@ -4,7 +4,6 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using OSGB.Common.Enums;
-using OSGB.Common.Extensions.Object;
 using OSGB.Common.Interfaces;
 
 namespace OSGB.Common.Classes

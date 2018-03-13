@@ -44,3 +44,6 @@ Thumbs.db
 **/dist/
 **/obj/
 **/bin/
+*.suo
+/back-end/.vs/OSGB/v15/Server/sqlite3
+/.vs/VSWorkspaceState.json
