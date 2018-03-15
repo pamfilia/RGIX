@@ -6,6 +6,11 @@
 *.exe
 *.o
 *.so
+*.suo
+*.iml
+*.props
+*.targets
+*.cache
 
 # Packages #
 ############
@@ -35,21 +40,15 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-*.csproj.nuget.cache
 
-# Node Modules
+# Node Modules #
+################
 **/node_modules/
 
-#Custom Folders
+# Custom Folders #
+################
 **/dist/
+**/.idea/
 **/obj/
 **/bin/
-*.suo
-**/back-end/Api/OSGB.Api/bin/
-**/back-end/Api/OSGB.Api/obj
-**/back-end/Common/OSGB.Common/obj/
-**/back-end/Data/OSGB.Data/obj/
-**/back-end/Tests/OSGB.Api.Tests/bin/
-**/back-end/Tests/OSGB.Api.Tests/obj/
-/.vs/VSWorkspaceState.json
-/back-end/.vs/OSGB/v15/Server/sqlite3
+**/.vs/
