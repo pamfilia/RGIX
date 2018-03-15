@@ -1,0 +1,12 @@
+
+<h2>List Of Naces</h2>
+<div class="row">
+<div class="col-sm"><strong>Code</strong></div>
+<div class="col-sm"><strong>Definition</strong></div>
+<div class="col-sm"><strong>Action</strong></div>
+</div>
+<div *ngFor="let data of componentData" class="row">
+<div class="col-sm">{{data.code}}</div>
+<div class="col-sm">{{data.definition}}</div>
+<div class="col-sm">Edit</div>
+</div>

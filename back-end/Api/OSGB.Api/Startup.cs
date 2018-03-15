@@ -36,64 +36,66 @@ namespace OSGB.Api
         {
             services.AddMvc();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(jwtOpt =>
-                {
-                    jwtOpt.RequireHttpsMetadata = false;
-                    jwtOpt.IncludeErrorDetails = false;
-                    jwtOpt.SaveToken = true;
-                    jwtOpt.SaveToken = true;
-                    jwtOpt.Events = new JwtBearerEvents
-                    {
-                        OnChallenge = (e) =>
-                        {
-                            Debug.WriteLine("OnMessageReceived = > {0}", e.Error);
-                            return Task.FromResult(0);
-                        },
-                        OnMessageReceived = (e) =>
-                        {
-                            Debug.WriteLine("OnMessageReceived = > {0}", e.Result);
-                            return Task.FromResult(0);
-                        },
-                        OnTokenValidated = (e) =>
-                        {
-                            Debug.WriteLine("OnTokenValidated = > {0}", e.Result);
-                            return Task.FromResult(0);
-                        },
-                        OnAuthenticationFailed = (e) =>
-                        {
-                            Debug.WriteLine("OnAuthenticationFailed = > {0}", e.Result);
-                            return Task.FromResult(0);
-                        }
-                    };
-                    jwtOpt.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidIssuer = Configuration["JwtIssuer"],
-                        ValidateAudience = true,
-                        ValidAudience = Configuration["JwtIssuer"],
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
-                        ValidateLifetime = true,
-                        ClockSkew = TimeSpan.Zero
-                    };
-                });
-
-
-            services.Configure<JwtConfig>(jwtCfg =>
-            {
-                jwtCfg.JwtExpireDays = int.Parse(Configuration["JwtExpireDays"]);
-                jwtCfg.JwtIssuer = Configuration["JwtIssuer"];
-                jwtCfg.JwtKey = Configuration["JwtKey"];
-            });
+//            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//                .AddJwtBearer(jwtOpt =>
+//                {
+//                    jwtOpt.RequireHttpsMetadata = false;
+//                    jwtOpt.IncludeErrorDetails = false;
+//                    jwtOpt.SaveToken = true;
+//                    jwtOpt.SaveToken = true;
+//                    jwtOpt.Events = new JwtBearerEvents
+//                    {
+//                        OnChallenge = (e) =>
+//                        {
+//                            Debug.WriteLine("OnMessageReceived = > {0}", e.Error);
+//                            return Task.FromResult(0);
+//                        },
+//                        OnMessageReceived = (e) =>
+//                        {
+//                            Debug.WriteLine("OnMessageReceived = > {0}", e.Result);
+//                            return Task.FromResult(0);
+//                        },
+//                        OnTokenValidated = (e) =>
+//                        {
+//                            Debug.WriteLine("OnTokenValidated = > {0}", e.Result);
+//                            return Task.FromResult(0);
+//                        },
+//                        OnAuthenticationFailed = (e) =>
+//                        {
+//                            Debug.WriteLine("OnAuthenticationFailed = > {0}", e.Result);
+//                            return Task.FromResult(0);
+//                        }
+//                    };
+//                    jwtOpt.TokenValidationParameters = new TokenValidationParameters
+//                    {
+//                        ValidateIssuer = true,
+//                        ValidIssuer = Configuration["JwtIssuer"],
+//                        ValidateAudience = true,
+//                        ValidAudience = Configuration["JwtIssuer"],
+//                        ValidateIssuerSigningKey = true,
+//                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
+//                        ValidateLifetime = true,
+//                        ClockSkew = TimeSpan.Zero
+//                    };
+//                });
+//
+//
+//            services.Configure<JwtConfig>(jwtCfg =>
+//            {
+//                jwtCfg.JwtExpireDays = int.Parse(Configuration["JwtExpireDays"]);
+//                jwtCfg.JwtIssuer = Configuration["JwtIssuer"];
+//                jwtCfg.JwtKey = Configuration["JwtKey"];
+//            });
 
             //services.AddDbContext<AddressbookContext>();
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-                options.Filters.Add(new AuthorizeFilter(policy));
-                options.Filters.Add(typeof(ValidateModelAttribute),1);
+                options.Filters.Add(new ValidateModelAttribute());
+//                options.Filters.Add(new AuthorizeFilter(policy));
             });
+
+            #region DI
 
             services.AddScoped(s =>
                 new DocumentClient(new Uri(Configuration["EndpointUri"]), Configuration["PrimaryKey"]));
@@ -103,7 +105,16 @@ namespace OSGB.Api
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IRepository<User>, UserRepository>();
             services.AddScoped<IRepository<Nace>, NaceRepository>();
+
+
+            #endregion
+            
+            #region Filters
+
             services.AddScoped<Measurement.Filters.MeasureFilter>();
+
+            #endregion
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -112,9 +123,13 @@ namespace OSGB.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors(cfg =>
+                {
+                    cfg.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader();
+                });
             }
-
-            app.UseAuthentication();
+//            app.UseAuthentication();
             app.UseMvc();
         }
     }
