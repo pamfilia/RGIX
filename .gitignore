@@ -51,3 +51,5 @@ Thumbs.db
 **/back-end/Data/OSGB.Data/obj/
 **/back-end/Tests/OSGB.Api.Tests/bin/
 **/back-end/Tests/OSGB.Api.Tests/obj/
+/.vs/VSWorkspaceState.json
+/back-end/.vs/OSGB/v15/Server/sqlite3
