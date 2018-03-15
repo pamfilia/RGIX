@@ -1,3 +1,62 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+# Node Modules #
+################
+**/node_modules/
+
+#Custom Folders
+**/dist/
+**/obj/
+**/bin/
+*.suo
+back-end/Api/OSGB.Api/bin/
+back-end/Api/OSGB.Api/obj
+back-end/Common/OSGB.Common/obj/
+back-end/Data/OSGB.Data/obj/
+back-end/Tests/OSGB.Api.Tests/bin/
+back-end/Tests/OSGB.Api.Tests/obj/
+
+#Custom Files #
+###############
+*.cache
+
 logs
 project/project
 project/target
