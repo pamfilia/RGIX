@@ -8,7 +8,7 @@ namespace OSGB.Api.Controllers
     [Route("api/[controller]")]
     public class BaseController<T>:Controller
     {
-        private IRepository<T> _repository;
+        private readonly IRepository<T> _repository;
 
         public BaseController(IRepository<T> repository)
         {

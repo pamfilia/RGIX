@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app-component/app.component';
 import { HeaderNavigationComponent } from './components/header-nav/header-nav.component';
 import { GlobalService } from './services/global.service';
+import { AjaxService } from './services/ajax.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { GlobalService } from './services/global.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [GlobalService],
+  providers: [GlobalService, AjaxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

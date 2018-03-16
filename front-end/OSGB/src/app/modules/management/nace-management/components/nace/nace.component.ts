@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NaceService } from '../../services/nace-service.service';
 import { INaceListModel } from '../../../../../models/nace/INaceListModel';
+import { ServiceOperationType } from '../../../../../common/enums/ServiceOperationType';
 
 @Component({
   selector: 'app-nace',
@@ -15,7 +16,7 @@ export class NaceComponent implements OnInit {
   }
   public componentData: INaceListModel[];
   ngOnInit() {
-    this._naceService.Call().subscribe(r => this.componentData = r.resultValue);
+    this._naceService.Call(ServiceOperationType.Read).subscribe(r => this.componentData = r.resultValue);
   }
 
 }
