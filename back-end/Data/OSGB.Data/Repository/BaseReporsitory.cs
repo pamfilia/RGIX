@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
@@ -63,6 +64,11 @@ namespace OSGB.Data.Repository
 
         public async Task<IReturnResult<IEnumerable<T>>> ReadAll(string requestContinuation, int limit)
         {
+            if (!requestContinuation.IsNullOrNot())
+            {
+                requestContinuation = Encoding.UTF8.GetString(Convert.FromBase64String(requestContinuation));
+            }
+
             var t = Task.Run(async () =>
             {
                 var query = DocumentClient.CreateDocumentQuery<T>(
@@ -84,7 +90,7 @@ namespace OSGB.Data.Repository
                     }
 
                     results.AddRange(it.Result);
-                    requestContinuation = JsonConvert.DeserializeObject<ContinuationToken>(it.Result.ResponseContinuation).Token;
+                    requestContinuation = Convert.ToBase64String(Encoding.UTF8.GetBytes(it.Result.ResponseContinuation));//JsonConvert.DeserializeObject<ContinuationToken>(it.Result.ResponseContinuation).Token;
                 });
 
                 return results;
