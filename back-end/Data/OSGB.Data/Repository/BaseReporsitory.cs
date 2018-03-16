@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using Newtonsoft.Json;
 using OSGB.Common.Classes;
 using OSGB.Common.Constants;
 using OSGB.Common.Enums;
@@ -54,37 +55,48 @@ namespace OSGB.Data.Repository
                 {
                     result.ResultValue = true;
                     result.ResultType = DocumentResponseMapper.Identify(t.Result.StatusCode).Item1;
-                    result.HumanReadableMessage.Add(HumanReadable.RecordHasBeenCreated); 
+                    result.HumanReadableMessage.Add(HumanReadable.RecordHasBeenCreated);
                 }
             });
             return result;
         }
 
-        public async Task<IReturnResult<IEnumerable<T>>> ReadAll()
+        public async Task<IReturnResult<IEnumerable<T>>> ReadAll(string requestContinuation, int limit)
         {
             var t = Task.Run(async () =>
             {
                 var query = DocumentClient.CreateDocumentQuery<T>(
                         UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, this.CollectionName),
-                        new FeedOptions {MaxItemCount = -1, EnableCrossPartitionQuery = true})
+                        new FeedOptions
+                        {
+                            MaxItemCount = limit,
+                            RequestContinuation = requestContinuation,
+                            MaxBufferedItemCount = limit,
+                            EnableCrossPartitionQuery = true
+                        })
                     .AsDocumentQuery();
-
                 var results = new List<T>();
-
-                while (query.HasMoreResults)
+                await query.ExecuteNextAsync<T>().ContinueWith((it) =>
                 {
-                    results.AddRange(await query.ExecuteNextAsync<T>());
-                }
+                    if (it.IsFaulted)
+                    {
+                        return;
+                    }
+
+                    results.AddRange(it.Result);
+                    requestContinuation = JsonConvert.DeserializeObject<ContinuationToken>(it.Result.ResponseContinuation).Token;
+                });
 
                 return results;
             });
 
-            var result= new ReturnResult<IEnumerable<T>>
+            var result = new ReturnResult<IEnumerable<T>>
             {
                 ResultValue = await t,
+                RequestContinuation = requestContinuation,
                 ResultType = ResultType.Success,
             };
-            result.HumanReadableMessage.Add( HumanReadable.Acknowledged);
+            result.HumanReadableMessage.Add(HumanReadable.Acknowledged);
             return result;
         }
 
@@ -99,14 +111,14 @@ namespace OSGB.Data.Repository
                     {
                         result.AddException(t.Exception);
                         result.ResultType = ResultType.Failed;
-                        result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong); 
+                        result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
                     }
                     else
                     {
                         var resultType = DocumentResponseMapper.Identify(t.Result.StatusCode).Item1;
                         result.ResultValue = t.Result.Document;
                         result.ResultType = resultType;
-                        result.HumanReadableMessage.Add(HumanReadable.Acknowledged); 
+                        result.HumanReadableMessage.Add(HumanReadable.Acknowledged);
                     }
                 });
             return result;

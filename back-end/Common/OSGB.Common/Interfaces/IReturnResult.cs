@@ -15,6 +15,7 @@ namespace OSGB.Common.Interfaces
         void AddException(string ex);
         ResultType ResultType { get; set; }
         T ResultValue { get; set; }
+        string RequestContinuation { get; set; }
         List<string> HumanReadableMessage { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OSGB.Data.Common;
 
@@ -17,9 +18,9 @@ namespace OSGB.Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public async Task<JsonResult> Get()
+        public async Task<JsonResult> Get([FromQuery] string rc,int l=10)
         {
-            var result = await _repository.ReadAll();
+            var result = await _repository.ReadAll(rc,l);
             return Json(result);
         }
 

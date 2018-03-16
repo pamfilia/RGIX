@@ -16,7 +16,7 @@ export class NaceComponent implements OnInit {
   }
   public componentData: INaceListModel[];
   ngOnInit() {
-    this._naceService.Call(ServiceOperationType.Read).subscribe(r => this.componentData = r.resultValue);
+    this._naceService.Read().subscribe(r => this.componentData = r.resultValue);
   }
 
 }

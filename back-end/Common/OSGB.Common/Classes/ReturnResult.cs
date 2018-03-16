@@ -44,6 +44,7 @@ namespace OSGB.Common.Classes
 
         public ResultType ResultType { get; set; }
         public T ResultValue { get; set; }
+        public string RequestContinuation { get; set; }
         public List<string> HumanReadableMessage { get; set; }
     }
 }
