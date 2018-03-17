@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NaceComponent } from './nace.component';
+import { NaceService } from '../../services/nace-service.service';
+import { GlobalService } from '../../../../../services/global.service';
 
 describe('NaceComponent', () => {
   let component: NaceComponent;
@@ -8,7 +10,8 @@ describe('NaceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NaceComponent ]
+      declarations: [ NaceComponent ],
+      providers: [GlobalService, NaceService]
     })
     .compileComponents();
   }));

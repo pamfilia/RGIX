@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { NaceService } from './nace-service.service';
+import { GlobalService } from '../../../../services/global.service';
 
 describe('NaceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NaceService]
+      providers: [NaceService, GlobalService]
     });
   });
 
