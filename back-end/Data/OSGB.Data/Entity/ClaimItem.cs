@@ -3,7 +3,7 @@ using OSGB.Data.Common;
 
 namespace OSGB.Data.Entity
 {
-    public class ClaimItem<T>:IEntity
+    public class ClaimItem<T> : IEntity
     {
         public string Name { get; set; }
         public T Value { get; set; }

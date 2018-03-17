@@ -8,7 +8,7 @@ namespace OSGB.Common.Extensions.Object
         {
             return JsonConvert.SerializeObject(
                 obj,
-                new JsonSerializerSettings()
+                new JsonSerializerSettings
                 {
                     DateFormatHandling = DateFormatHandling.IsoDateFormat,
                     DateParseHandling = DateParseHandling.DateTime,
@@ -16,7 +16,7 @@ namespace OSGB.Common.Extensions.Object
                     DefaultValueHandling = DefaultValueHandling.Ignore,
                     MaxDepth = 3,
                     MissingMemberHandling = MissingMemberHandling.Ignore,
-                    NullValueHandling = NullValueHandling.Include,
+                    NullValueHandling = NullValueHandling.Include
                 });
         }
     }

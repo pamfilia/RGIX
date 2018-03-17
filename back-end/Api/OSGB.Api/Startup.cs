@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using OSGB.Api.Common;
 using OSGB.Api.Filters;
 using OSGB.Common.Mappers.Azure;
 using OSGB.Common.Mappers.Azure.Interfaces;
 using OSGB.Data.Common;
 using OSGB.Data.Entity;
 using OSGB.Data.Repository;
-using User = OSGB.Data.Entity.User;
+using OSGB.Measurement.Filters;
 
 namespace OSGB.Api
 {
@@ -106,15 +99,13 @@ namespace OSGB.Api
             services.AddScoped<IRepository<User>, UserRepository>();
             services.AddScoped<IRepository<Nace>, NaceRepository>();
 
-
             #endregion
-            
+
             #region Filters
 
-            services.AddScoped<Measurement.Filters.MeasureFilter>();
+            services.AddScoped<MeasureFilter>();
 
             #endregion
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -129,6 +120,7 @@ namespace OSGB.Api
                         .AllowAnyHeader();
                 });
             }
+
 //            app.UseAuthentication();
             app.UseMvc();
         }

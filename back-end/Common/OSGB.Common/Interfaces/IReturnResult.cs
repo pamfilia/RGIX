@@ -8,14 +8,14 @@ namespace OSGB.Common.Interfaces
 {
     public interface IReturnResult<T>
     {
-        [JsonIgnore]
-        IEnumerable<string> Errors { get;}
-        void AddException(Exception ex);
-        void AddException(ModelStateDictionary ex);
-        void AddException(string ex);
+        [JsonIgnore] IEnumerable<string> Errors { get; }
+
         ResultType ResultType { get; set; }
         T ResultValue { get; set; }
         string RequestContinuation { get; set; }
         List<string> HumanReadableMessage { get; set; }
+        void AddException(Exception ex);
+        void AddException(ModelStateDictionary ex);
+        void AddException(string ex);
     }
 }

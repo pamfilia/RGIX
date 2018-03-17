@@ -1,13 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OSGB.Data.Common;
+using OSGB.Measurement.Filters;
 
 namespace OSGB.Api.Controllers
 {
-    [ServiceFilter(typeof(Measurement.Filters.MeasureFilter))]
+    [ServiceFilter(typeof(MeasureFilter))]
     [Route("api/[controller]")]
-    public class BaseController<T>:Controller
+    public class BaseController<T> : Controller
     {
         private readonly IRepository<T> _repository;
 
@@ -18,9 +18,9 @@ namespace OSGB.Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public async Task<JsonResult> Get([FromQuery] string rc,int l=10)
+        public async Task<JsonResult> Get([FromQuery] string rc, int l = 10)
         {
-            var result = await _repository.ReadAll(rc,l);
+            var result = await _repository.ReadAll(rc, l);
             return Json(result);
         }
 
@@ -28,7 +28,7 @@ namespace OSGB.Api.Controllers
         [HttpGet("{id}")]
         public async Task<JsonResult> Get(string id)
         {
-            var result =  await _repository.ReadById(id);
+            var result = await _repository.ReadById(id);
             return Json(result);
         }
 
@@ -36,7 +36,7 @@ namespace OSGB.Api.Controllers
         [HttpPost]
         public async Task<JsonResult> Post([FromBody] T value)
         {
-            var result =  await _repository.Create(value);
+            var result = await _repository.Create(value);
             return Json(result);
         }
 
@@ -44,15 +44,15 @@ namespace OSGB.Api.Controllers
         [HttpPut("{id}")]
         public async Task<JsonResult> Put(string id, [FromBody] T value)
         {
-            var result =  await _repository.Update(id,value);
+            var result = await _repository.Update(id, value);
             return Json(result);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public async Task<JsonResult>  Delete(string id)
+        public async Task<JsonResult> Delete(string id)
         {
-            var result =  await _repository.Delete(id);
+            var result = await _repository.Delete(id);
             return Json(result);
         }
     }

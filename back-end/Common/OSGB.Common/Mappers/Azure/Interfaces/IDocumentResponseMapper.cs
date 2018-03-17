@@ -5,6 +5,6 @@ namespace OSGB.Common.Mappers.Azure.Interfaces
 {
     public interface IDocumentResponseMapper
     {
-        (ResultType,string)  Identify(HttpStatusCode code);
+        (ResultType, string) Identify(HttpStatusCode code);
     }
 }
