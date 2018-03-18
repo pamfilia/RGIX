@@ -7,14 +7,7 @@ namespace OSGB.Api.Tests
         [Fact]
         public void ShouldReturnStringArray()
         {
-//            var controller = new Controllers.NaceController();
-//
-//            //Given
-//            var expected = new string[] { "value1", "value2" };
-//            //When
-//            var actual = controller.Get();
-//            //Then
-//            Assert.Equal(expected, actual);
+            Assert.Equal(1, 1);
         }
     }
 }
