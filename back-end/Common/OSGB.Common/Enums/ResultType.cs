@@ -5,6 +5,6 @@
         None = 0,
         Success = 1,
         SuccessWithErros = 2,
-        Failed = 4,
+        Failed = 4
     }
 }

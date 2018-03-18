@@ -7,6 +7,7 @@ namespace OSGB.Api.Models
         [Required]
         [StringLength(60, MinimumLength = 7)]
         public string UserName { get; set; }
+
         [Required]
         [StringLength(60, MinimumLength = 8)]
         public string Password { get; set; }

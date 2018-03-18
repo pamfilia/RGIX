@@ -1,10 +1,6 @@
-﻿using System.Net;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Rest;
 using OSGB.Common.Classes;
-using OSGB.Common.Extensions.Object;
 
 namespace OSGB.Api.Filters
 {
@@ -22,8 +18,8 @@ namespace OSGB.Api.Filters
                 context.Result = new JsonResult(result);
                 return;
             }
+
             base.OnActionExecuting(context);
         }
- 
     }
 }

@@ -6,56 +6,56 @@ using OSGB.Common.Mappers.Azure.Interfaces;
 
 namespace OSGB.Common.Mappers.Azure
 {
-    public class DocumentResponseMapper:IDocumentResponseMapper
+    public class DocumentResponseMapper : IDocumentResponseMapper
     {
-        private static readonly Dictionary<HttpStatusCode,string> MappedData = 
-            new Dictionary<HttpStatusCode, string>()
+        private static readonly Dictionary<HttpStatusCode, string> MappedData =
+            new Dictionary<HttpStatusCode, string>
             {
-                {HttpStatusCode.Accepted,""},
-                {HttpStatusCode.Ambiguous,""},
-                {HttpStatusCode.BadGateway,""},
-                {HttpStatusCode.BadRequest,""},
-                {HttpStatusCode.Conflict,""},
-                {HttpStatusCode.Continue,""},
-                {HttpStatusCode.Created,""},
-                {HttpStatusCode.ExpectationFailed,""},
-                {HttpStatusCode.Forbidden,""},
-                {HttpStatusCode.GatewayTimeout,""},
-                {HttpStatusCode.Gone,""},
-                {HttpStatusCode.HttpVersionNotSupported,""},
-                {HttpStatusCode.InternalServerError,""},
-                {HttpStatusCode.LengthRequired,""},
-                {HttpStatusCode.MethodNotAllowed,""},
-                {HttpStatusCode.Moved,""},
-                {HttpStatusCode.NoContent,""},
-                {HttpStatusCode.NonAuthoritativeInformation,""},
-                {HttpStatusCode.NotAcceptable,""},
-                {HttpStatusCode.NotFound,""},
-                {HttpStatusCode.NotImplemented,""},
-                {HttpStatusCode.NotModified,""},
-                {HttpStatusCode.OK,"OK"},
-                {HttpStatusCode.PartialContent,""},
-                {HttpStatusCode.PaymentRequired,""},
-                {HttpStatusCode.PreconditionFailed,""},
-                {HttpStatusCode.ProxyAuthenticationRequired,""},
-                {HttpStatusCode.Redirect,""},
-                {HttpStatusCode.RedirectMethod,""},
-                {HttpStatusCode.RequestedRangeNotSatisfiable,""},
-                {HttpStatusCode.RequestEntityTooLarge,""},
-                {HttpStatusCode.RequestTimeout,""},
-                {HttpStatusCode.RequestUriTooLong,""},
-                {HttpStatusCode.ResetContent,""},
-                {HttpStatusCode.ServiceUnavailable,""},
-                {HttpStatusCode.SwitchingProtocols,""},
-                {HttpStatusCode.TemporaryRedirect,""},
-                {HttpStatusCode.Unauthorized,""},
-                {HttpStatusCode.UnsupportedMediaType,""},
-                {HttpStatusCode.Unused,""},
-                {HttpStatusCode.UpgradeRequired,""},
-                {HttpStatusCode.UseProxy,""}
+                {HttpStatusCode.Accepted, ""},
+                {HttpStatusCode.Ambiguous, ""},
+                {HttpStatusCode.BadGateway, ""},
+                {HttpStatusCode.BadRequest, ""},
+                {HttpStatusCode.Conflict, ""},
+                {HttpStatusCode.Continue, ""},
+                {HttpStatusCode.Created, ""},
+                {HttpStatusCode.ExpectationFailed, ""},
+                {HttpStatusCode.Forbidden, ""},
+                {HttpStatusCode.GatewayTimeout, ""},
+                {HttpStatusCode.Gone, ""},
+                {HttpStatusCode.HttpVersionNotSupported, ""},
+                {HttpStatusCode.InternalServerError, ""},
+                {HttpStatusCode.LengthRequired, ""},
+                {HttpStatusCode.MethodNotAllowed, ""},
+                {HttpStatusCode.Moved, ""},
+                {HttpStatusCode.NoContent, ""},
+                {HttpStatusCode.NonAuthoritativeInformation, ""},
+                {HttpStatusCode.NotAcceptable, ""},
+                {HttpStatusCode.NotFound, ""},
+                {HttpStatusCode.NotImplemented, ""},
+                {HttpStatusCode.NotModified, ""},
+                {HttpStatusCode.OK, "OK"},
+                {HttpStatusCode.PartialContent, ""},
+                {HttpStatusCode.PaymentRequired, ""},
+                {HttpStatusCode.PreconditionFailed, ""},
+                {HttpStatusCode.ProxyAuthenticationRequired, ""},
+                {HttpStatusCode.Redirect, ""},
+                {HttpStatusCode.RedirectMethod, ""},
+                {HttpStatusCode.RequestedRangeNotSatisfiable, ""},
+                {HttpStatusCode.RequestEntityTooLarge, ""},
+                {HttpStatusCode.RequestTimeout, ""},
+                {HttpStatusCode.RequestUriTooLong, ""},
+                {HttpStatusCode.ResetContent, ""},
+                {HttpStatusCode.ServiceUnavailable, ""},
+                {HttpStatusCode.SwitchingProtocols, ""},
+                {HttpStatusCode.TemporaryRedirect, ""},
+                {HttpStatusCode.Unauthorized, ""},
+                {HttpStatusCode.UnsupportedMediaType, ""},
+                {HttpStatusCode.Unused, ""},
+                {HttpStatusCode.UpgradeRequired, ""},
+                {HttpStatusCode.UseProxy, ""}
             };
-        
-        public (ResultType,string) Identify(HttpStatusCode code)
+
+        public (ResultType, string) Identify(HttpStatusCode code)
         {
             MappedData.TryGetValue(code, out var v);
             switch (code)
@@ -107,7 +107,7 @@ namespace OSGB.Common.Mappers.Azure
                 case HttpStatusCode.NotModified:
                     break;
                 case HttpStatusCode.OK:
-                    return (ResultType.Success,v);
+                    return (ResultType.Success, v);
                 case HttpStatusCode.PartialContent:
                     break;
                 case HttpStatusCode.PaymentRequired:
@@ -147,7 +147,8 @@ namespace OSGB.Common.Mappers.Azure
                 default:
                     throw new ArgumentOutOfRangeException(nameof(code), code, null);
             }
-            return (ResultType.Success,v);
+
+            return (ResultType.Success, v);
         }
     }
 }

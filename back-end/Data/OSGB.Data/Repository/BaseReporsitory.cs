@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
-using Newtonsoft.Json;
 using OSGB.Common.Classes;
 using OSGB.Common.Constants;
 using OSGB.Common.Enums;
@@ -18,7 +17,6 @@ namespace OSGB.Data.Repository
 {
     public abstract class BaseReporsitory<T> : IRepository<T> where T : IEntity
     {
-        protected string CollectionName { get; set; }
         protected readonly DocumentClient DocumentClient;
         protected readonly IDocumentResponseMapper DocumentResponseMapper;
 
@@ -28,6 +26,8 @@ namespace OSGB.Data.Repository
             CollectionName = Collections.Users.ToString();
             DocumentResponseMapper = documentResponseMapper;
         }
+
+        protected string CollectionName { get; set; }
 
         public async Task<IReturnResult<bool>> Create(T newObject)
         {
@@ -42,7 +42,7 @@ namespace OSGB.Data.Repository
             }
 
             await DocumentClient.CreateDocumentAsync(
-                UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, this.CollectionName),
+                UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
                 newObject).ContinueWith(t =>
             {
                 if (t.IsFaulted)
@@ -65,14 +65,12 @@ namespace OSGB.Data.Repository
         public async Task<IReturnResult<IEnumerable<T>>> ReadAll(string requestContinuation, int limit)
         {
             if (!requestContinuation.IsNullOrNot())
-            {
                 requestContinuation = Encoding.UTF8.GetString(Convert.FromBase64String(requestContinuation));
-            }
 
             var t = Task.Run(async () =>
             {
                 var query = DocumentClient.CreateDocumentQuery<T>(
-                        UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, this.CollectionName),
+                        UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
                         new FeedOptions
                         {
                             MaxItemCount = limit,
@@ -82,15 +80,15 @@ namespace OSGB.Data.Repository
                         })
                     .AsDocumentQuery();
                 var results = new List<T>();
-                await query.ExecuteNextAsync<T>().ContinueWith((it) =>
+                await query.ExecuteNextAsync<T>().ContinueWith(it =>
                 {
-                    if (it.IsFaulted)
-                    {
-                        return;
-                    }
+                    if (it.IsFaulted) return;
 
                     results.AddRange(it.Result);
-                    requestContinuation = Convert.ToBase64String(Encoding.UTF8.GetBytes(it.Result.ResponseContinuation));//JsonConvert.DeserializeObject<ContinuationToken>(it.Result.ResponseContinuation).Token;
+                    requestContinuation =
+                        Convert.ToBase64String(
+                            Encoding.UTF8.GetBytes(it.Result
+                                .ResponseContinuation)); //JsonConvert.DeserializeObject<ContinuationToken>(it.Result.ResponseContinuation).Token;
                 });
 
                 return results;
@@ -100,7 +98,7 @@ namespace OSGB.Data.Repository
             {
                 ResultValue = await t,
                 RequestContinuation = requestContinuation,
-                ResultType = ResultType.Success,
+                ResultType = ResultType.Success
             };
             result.HumanReadableMessage.Add(HumanReadable.Acknowledged);
             return result;
@@ -110,8 +108,8 @@ namespace OSGB.Data.Repository
         {
             var result = new ReturnResult<T>();
             await DocumentClient.ReadDocumentAsync<T>(
-                    UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id.ToString()))
-                .ContinueWith((t) =>
+                    UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id))
+                .ContinueWith(t =>
                 {
                     if (t.IsFaulted)
                     {
@@ -142,9 +140,9 @@ namespace OSGB.Data.Repository
                 return result;
             }
 
-            newObject.Id = id.ToString();
+            newObject.Id = id;
             await DocumentClient.UpsertDocumentAsync(
-                UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id.ToString()),
+                UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id),
                 newObject).ContinueWith(t =>
             {
                 if (t.IsFaulted)
@@ -168,8 +166,8 @@ namespace OSGB.Data.Repository
         {
             var result = new ReturnResult<bool>();
             await DocumentClient.DeleteDocumentAsync(
-                    UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id.ToString()))
-                .ContinueWith((t) =>
+                    UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id))
+                .ContinueWith(t =>
                 {
                     if (t.IsFaulted)
                     {

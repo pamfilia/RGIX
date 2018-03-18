@@ -5,14 +5,12 @@ using OSGB.Data.Entity;
 
 namespace OSGB.Data.Repository
 {
-    public class RoleRepository: BaseReporsitory<Role>
+    public class RoleRepository : BaseReporsitory<Role>
     {
-
         public RoleRepository(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper) :
             base(documentClient, documentResponseMapper)
         {
             CollectionName = Collections.Roles.ToString();
         }
-
     }
 }
