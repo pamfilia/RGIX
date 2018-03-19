@@ -8,6 +8,8 @@ import { isNull } from 'util';
 export class BaseService<T> {
     private _globalService: GlobalService;
     protected urlSuffix: string;
+    private readonly emptyResult: ReturnResult<T> =
+    { resultType: 1, resultValue: <T>{}, totalRecordCount: 0, humanReadableMessage: ['Oops'] };
     constructor(protected globalService: GlobalService) {
         this._globalService = globalService;
     }
@@ -23,7 +25,7 @@ export class BaseService<T> {
                     }))
                 .subscribe(
                     (ajaxRes: AjaxResponse) => o.next(ajaxRes.response as ReturnResult<T>),
-                    e => o.next({ resultType: 1, resultValue: <T>{}, humanReadableMessage: ['Oops'] }));
+                    e => o.next(this.emptyResult));
         });
     }
 
@@ -38,7 +40,7 @@ export class BaseService<T> {
                     }))
                 .subscribe(
                     (ajaxRes: AjaxResponse) => o.next(ajaxRes.response as ReturnResult<T>),
-                    e => o.next({ resultType: 1, resultValue: <T>{}, humanReadableMessage: ['Oops'] }));
+                    e => o.next(this.emptyResult));
         });
     }
 
@@ -53,7 +55,7 @@ export class BaseService<T> {
                     }))
                 .subscribe(
                     (ajaxRes: AjaxResponse) => o.next(ajaxRes.response as ReturnResult<T>),
-                    e => o.next({ resultType: 1, resultValue: <T>{}, humanReadableMessage: ['Oops'] }));
+                    e => o.next(this.emptyResult));
         });
     }
 
@@ -68,7 +70,7 @@ export class BaseService<T> {
                     }))
                 .subscribe(
                     (ajaxRes: AjaxResponse) => o.next(ajaxRes.response as ReturnResult<T>),
-                    e => o.next({ resultType: 1, resultValue: <T>{}, humanReadableMessage: ['Oops'] }));
+                    e => o.next(this.emptyResult));
         });
     }
 
@@ -83,7 +85,7 @@ export class BaseService<T> {
                     }))
                 .subscribe(
                     (ajaxRes: AjaxResponse) => o.next(ajaxRes.response as ReturnResult<T>),
-                    e => o.next({ resultType: 1, resultValue: <T>{}, humanReadableMessage: ['Oops'] }));
+                    e => o.next(this.emptyResult));
         });
     }
 }

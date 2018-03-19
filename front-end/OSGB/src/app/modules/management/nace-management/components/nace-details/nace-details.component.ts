@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { INaceModel } from '../../../../../models/nace/INaceListModel';
+import { INaceModel } from '../../../../../models/nace/INaceModel';
 import { ActivatedRoute } from '@angular/router';
 import { NaceService } from '../../services/nace-service.service';
 import { BaseComponent } from '../../../../../common/component/BaseComponent';

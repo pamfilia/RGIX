@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of model;index as i">
+    <tr *ngFor="let item of model?.resultValue;index as i">
       <th scope="row">{{i+1}}</th>
       <td>{{item.code}}</td>
       <td>{{item.definition}}</td>
@@ -19,4 +19,4 @@
     </tr>
   </tbody>
 </table>
-<app-paginator></app-paginator>
+<app-paginator [TotalRecodCount]="model?.totalRecordCount" [PageLimit]=10></app-paginator>

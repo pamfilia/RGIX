@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents.Client;
@@ -67,6 +68,13 @@ namespace OSGB.Data.Repository
             if (!requestContinuation.IsNullOrNot())
                 requestContinuation = Encoding.UTF8.GetString(Convert.FromBase64String(requestContinuation));
 
+            var totalRecord = DocumentClient.CreateDocumentQuery<T>(
+                    UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
+                    new FeedOptions
+                    {
+                        MaxItemCount = -1,
+                        EnableCrossPartitionQuery = true
+                    }).CountAsync();
             var t = Task.Run(async () =>
             {
                 var query = DocumentClient.CreateDocumentQuery<T>(
@@ -98,6 +106,7 @@ namespace OSGB.Data.Repository
             {
                 ResultValue = await t,
                 RequestContinuation = requestContinuation,
+                TotalRecordCount = await totalRecord,
                 ResultType = ResultType.Success
             };
             result.HumanReadableMessage.Add(HumanReadable.Acknowledged);

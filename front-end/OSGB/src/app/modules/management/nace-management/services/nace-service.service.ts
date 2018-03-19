@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../../../../common/service/BaseService';
-import { INaceModel } from '../../../../models/nace/INaceListModel';
+import { INaceModel } from '../../../../models/nace/INaceModel';
 import { Observable } from 'rxjs/Observable';
 import { ReturnResult } from '../../../../common/service/ReturnResult';
 import { GlobalService } from '../../../../services/global.service';
