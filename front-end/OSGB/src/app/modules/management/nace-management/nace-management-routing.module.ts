@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NaceComponent } from './components/nace/nace.component';
+import { NaceDetailsComponent } from './components/nace-details/nace-details.component';
 
-const routes: Routes = [{ path: '', component: NaceComponent }];
+const routes: Routes = [
+  { path: '', component: NaceComponent },
+  { path: 'detail/:data', component: NaceDetailsComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

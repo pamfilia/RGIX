@@ -1,0 +1,21 @@
+<div *ngIf="model">
+  <h5>{{ model.code | uppercase }} Nolu Nace Detaylari</h5>
+  <form (onsubmit)="onSubmit()" #naceForm="ngForm">
+    <div class="form-row">
+      <div class="col">
+        <label class="col-form-label">Nace Code</label>
+      </div>
+      <div class="col">{{model.code}}</div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label class="col-form-label">Definition</label>
+      </div>
+      <div class="col">
+        <textarea class="form-control" id="definition" name="definition" [(ngModel)]="model.definition" required></textarea>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="goBack()">Listeye Geri Don</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!naceForm.form.valid">Guncelle</button>
+  </form>
+</div>

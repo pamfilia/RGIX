@@ -1,4 +1,5 @@
-export interface INaceListModel {
-    code:Number;
+export interface INaceModel {
+    id: string;
+    code: Number;
     definition: string;
 }

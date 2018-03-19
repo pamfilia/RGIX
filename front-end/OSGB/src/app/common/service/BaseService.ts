@@ -3,7 +3,6 @@ import { ReturnResult } from './ReturnResult';
 import { GlobalService } from '../../services/global.service';
 import { ajaxGet, ajaxPut, ajaxDelete, ajaxPost, AjaxResponse } from 'rxjs/observable/dom/AjaxObservable';
 import { retry, map, catchError } from 'rxjs/operators';
-import { ServiceOperationType } from '../enums/ServiceOperationType';
 import { isNull } from 'util';
 
 export class BaseService<T> {
