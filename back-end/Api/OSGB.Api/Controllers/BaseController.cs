@@ -18,7 +18,7 @@ namespace OSGB.Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public async Task<JsonResult> Get([FromQuery] string rc, int l = 10)
+        public async Task<JsonResult> Get([FromQuery] string rc, int l = 5)
         {
             var result = await _repository.ReadAll(rc, l);
             return Json(result);
