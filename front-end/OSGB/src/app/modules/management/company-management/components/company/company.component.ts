@@ -11,12 +11,10 @@ import { ComponentModeEnum } from '../../../../../common/component/ComponentMode
 })
 export class CompanyComponent extends BaseComponent<ICompanyModel> implements OnInit {
 
-  private _companyService: CompanyService;
   public model: ICompanyModel[];
   constructor(private companyService: CompanyService) {
     super(ComponentModeEnum.List);
-    this._companyService = companyService;
-   }
+  }
 
   ngOnInit() {
 
