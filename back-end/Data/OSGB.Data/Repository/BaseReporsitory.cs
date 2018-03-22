@@ -16,16 +16,18 @@ using OSGB.Data.Constants;
 
 namespace OSGB.Data.Repository
 {
-    public abstract class BaseReporsitory<T> : IRepository<T> where T : IEntity
+    public abstract class BaseReporsitory<T> : IRepository<T> where T : IEntity, new()
     {
         protected readonly DocumentClient DocumentClient;
         protected readonly IDocumentResponseMapper DocumentResponseMapper;
+        private readonly string DocumentType;
 
         protected BaseReporsitory(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper)
         {
             DocumentClient = documentClient;
             CollectionName = Collections.Users.ToString();
             DocumentResponseMapper = documentResponseMapper;
+            DocumentType = new T().DocumentType;
         }
 
         protected string CollectionName { get; set; }
@@ -67,14 +69,13 @@ namespace OSGB.Data.Repository
         {
             if (!requestContinuation.IsNullOrNot())
                 requestContinuation = Encoding.UTF8.GetString(Convert.FromBase64String(requestContinuation));
-
             var totalRecord = DocumentClient.CreateDocumentQuery<T>(
-                    UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
-                    new FeedOptions
-                    {
-                        MaxItemCount = -1,
-                        EnableCrossPartitionQuery = true
-                    }).CountAsync();
+                UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
+                new FeedOptions
+                {
+                    MaxItemCount = -1,
+                    EnableCrossPartitionQuery = true
+                }).Where(r => r.DocumentType == DocumentType).CountAsync();
             var t = Task.Run(async () =>
             {
                 var query = DocumentClient.CreateDocumentQuery<T>(
@@ -86,6 +87,7 @@ namespace OSGB.Data.Repository
                             MaxBufferedItemCount = limit,
                             EnableCrossPartitionQuery = true
                         })
+                    .Where(r => r.DocumentType == DocumentType)
                     .AsDocumentQuery();
                 var results = new List<T>();
                 await query.ExecuteNextAsync<T>().ContinueWith(it =>
@@ -93,10 +95,10 @@ namespace OSGB.Data.Repository
                     if (it.IsFaulted) return;
 
                     results.AddRange(it.Result);
-                    requestContinuation =
-                        Convert.ToBase64String(
+                    requestContinuation = it.Result
+                        .ResponseContinuation.IsNotNullCall(() => Convert.ToBase64String(
                             Encoding.UTF8.GetBytes(it.Result
-                                .ResponseContinuation)); //JsonConvert.DeserializeObject<ContinuationToken>(it.Result.ResponseContinuation).Token;
+                                .ResponseContinuation)));
                 });
 
                 return results;

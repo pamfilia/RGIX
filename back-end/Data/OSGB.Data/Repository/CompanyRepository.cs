@@ -10,7 +10,7 @@ namespace OSGB.Data.Repository
         public CompanyRepository(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper) :
             base(documentClient, documentResponseMapper)
         {
-            CollectionName = Collections.Company.ToString();
+            CollectionName = Collections.Common.ToString();
         }
     }
 }

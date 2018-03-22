@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
   onSubmit(): void {
     this.authService.login(this.login.UserName, this.login.Password)
       .subscribe(n => {
-        alert('Login is ' + (n ? 'successfull' : 'unsuccessfull'));
+        alert('Login was ' + (n ? 'successfull' : 'unsuccessfull'));
       }, e => {
         alert('Error while logging in');
       }, () => {

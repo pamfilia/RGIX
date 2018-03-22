@@ -13,15 +13,15 @@ import { ReturnResult } from '../../../../../common/service/ReturnResult';
 })
 export class NaceComponent extends BaseComponent<INaceModel[]> implements OnInit {
 
-  private readonly _naceService: NaceService;
   constructor(private naceService: NaceService) {
     super(ComponentModeEnum.List);
-    this._naceService = naceService;
   }
   public model: ReturnResult<INaceModel[]>;
   ngOnInit() {
-    this._naceService.Read().subscribe((r: ReturnResult<INaceModel[]>) => {
-      this.model = r;
-    });
+    this.naceService.Read().subscribe(
+      (r: ReturnResult<INaceModel[]>) => this.model = r,
+      (e) => {
+        console.log('OOps');
+      });
   }
 }

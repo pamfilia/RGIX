@@ -13,15 +13,12 @@ import { Location } from '@angular/common';
 })
 export class NaceDetailsComponent extends BaseComponent<INaceModel> implements OnInit {
   model: INaceModel;
-  private _naceService: NaceService;
-  private _location: Location;
+
   constructor(
     private activatedRouter: ActivatedRoute,
     private naceService: NaceService,
     private location: Location) {
     super(ComponentModeEnum.Edit);
-    this._location = location;
-    this._naceService = naceService;
     this.activatedRouter.params.subscribe(p => this.model = this.decodeParams(p.data));
   }
 
@@ -29,10 +26,10 @@ export class NaceDetailsComponent extends BaseComponent<INaceModel> implements O
   }
 
   onSubmit() {
-    this._naceService.Update();
+    this.naceService.Update();
   }
 
   goBack() {
-    this._location.back();
+    this.location.back();
   }
 }

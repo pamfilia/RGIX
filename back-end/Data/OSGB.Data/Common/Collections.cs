@@ -2,6 +2,7 @@
 {
     public enum Collections
     {
+        Common,
         Users,
         Roles,
         Naces,
