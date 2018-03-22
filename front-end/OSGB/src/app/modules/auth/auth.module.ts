@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.routing';
-import { AuthComponent } from '../authModule/components/auth.component';
+import { AuthComponent } from '../auth/components/auth.component';
 import { AuthService } from './services/auth-service.service';
 
 @NgModule({

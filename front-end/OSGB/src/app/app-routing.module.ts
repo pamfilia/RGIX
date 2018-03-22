@@ -4,7 +4,7 @@ import { AppComponent } from './components/app-component/app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
-  { path: 'login', loadChildren: './modules/authModule/auth.module#AuthModule' },
+  { path: 'login', loadChildren: './modules/auth/auth.module#AuthModule' },
   { path: 'nace-management', loadChildren: './modules/management/nace-management/nace-management.module#NaceManagementModule'},
   { path: 'company-management', loadChildren: './modules/management/company-management/company-management.module#CompanyManagementModule'},
 ];
