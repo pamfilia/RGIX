@@ -10,7 +10,7 @@ namespace OSGB.Data.Repository
         public RoleRepository(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper) :
             base(documentClient, documentResponseMapper)
         {
-            CollectionName = Collections.Roles.ToString();
+            CollectionName = Collections.Common.ToString();
         }
     }
 }

@@ -16,6 +16,6 @@ namespace OSGB.Data.Entity
         public DateTime Created { get; set; }
         public string Updated { get; set; }
 
-        public string DocumentType { get{return"user";} }
+        public string DocumentType => "user";
     }
 }

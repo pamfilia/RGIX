@@ -10,7 +10,7 @@ namespace OSGB.Data.Repository
         public ProfileRepository(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper) :
             base(documentClient, documentResponseMapper)
         {
-            CollectionName = Collections.Profiles.ToString();
+            CollectionName = Collections.Common.ToString();
         }
     }
 }

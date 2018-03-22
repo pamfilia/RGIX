@@ -15,6 +15,8 @@ namespace OSGB.Common.Classes
             HumanReadableMessage = new List<string>();
         }
 
+        public int TotalRecordCount { get; set; }
+
         public IEnumerable<string> Errors { get; private set; }
 
         public void AddException(Exception ex)
@@ -45,7 +47,6 @@ namespace OSGB.Common.Classes
         public ResultType ResultType { get; set; }
         public T ResultValue { get; set; }
         public string RequestContinuation { get; set; }
-        public int TotalRecordCount { get; set; }
         public List<string> HumanReadableMessage { get; set; }
     }
 }

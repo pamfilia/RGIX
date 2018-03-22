@@ -18,7 +18,7 @@ namespace OSGB.Data.Repository
         public UserRepository(DocumentClient documentClient, IDocumentResponseMapper documentResponseMapper) :
             base(documentClient, documentResponseMapper)
         {
-            CollectionName = Collections.Users.ToString();
+            CollectionName = Collections.Common.ToString();
         }
 
         public IReturnResult<User> IsUserExists(string userName, string password)
