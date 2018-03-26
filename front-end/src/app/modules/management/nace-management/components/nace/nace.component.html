@@ -19,4 +19,4 @@
     </tr>
   </tbody>
 </table>
-<app-paginator [TotalRecodCount]="model?.totalRecordCount" [PageLimit]=10></app-paginator>
+<app-paginator [TotalRecordCount]="model?.totalRecordCount" [PageLimit]=10 (OnPageChanged)="onPageChanged($event)"></app-paginator>

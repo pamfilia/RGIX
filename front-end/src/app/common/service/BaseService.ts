@@ -4,15 +4,27 @@ import { GlobalService } from '../../services/global.service';
 import { ajaxGet, ajaxPut, ajaxDelete, ajaxPost, AjaxResponse } from 'rxjs/observable/dom/AjaxObservable';
 import { retry, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { isNullOrUndefined } from 'util';
 export class BaseService<T> {
     protected urlSuffix: string;
     private readonly emptyResult: ReturnResult<T> =
-        { resultType: 1, resultValue: <T>{}, totalRecordCount: 0, humanReadableMessage: ['Oops'] };
+        {
+            resultType: 1,
+            resultValue: <T>{},
+            totalRecordCount: 0,
+            requestContinuation: '',
+            humanReadableMessage: ['Oops']
+        };
     constructor(protected globalService: GlobalService) { }
 
-    Read(page: Number = 1, limit: Number = 0): Observable<ReturnResult<T>> | any {
+    Read(page?: number, requestContinuation?: string, limit?: number): Observable<ReturnResult<T>> | any {
+        const url = this.globalService.ApiBaseUrl +
+            this.urlSuffix + '/?' +
+            (isNullOrUndefined(page) ? '' : 'p=' + page + '&') +
+            (isNullOrUndefined(requestContinuation) ? '' : 'rc=' + requestContinuation + '&') +
+            (isNullOrUndefined(limit) ? '' : 'l=' + limit);
         return new Observable<ReturnResult<T>>(o => {
-            ajaxGet(this.globalService.ApiBaseUrl + this.urlSuffix)
+            ajaxGet(url)
                 .pipe(retry(this.globalService.AjaxReqRetryCount),
                     catchError((e, v) => {
                         o.error(e);
