@@ -65,10 +65,12 @@ namespace OSGB.Data.Repository
             return result;
         }
 
-        public async Task<IReturnResult<IEnumerable<T>>> ReadAll(string requestContinuation, int limit)
+        public async Task<IReturnResult<IEnumerable<T>>> ReadAll(int? page, string requestContinuation, int? limit)
         {
-            if (!requestContinuation.IsNullOrNot())
-                requestContinuation = Encoding.UTF8.GetString(Convert.FromBase64String(requestContinuation));
+            var decodedRequestContinuation = string.Empty;
+            if (!string.IsNullOrWhiteSpace(requestContinuation))
+                decodedRequestContinuation = Encoding.UTF8.GetString(Convert.FromBase64String(requestContinuation));
+
             var totalRecord = DocumentClient.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
                 new FeedOptions
@@ -76,48 +78,95 @@ namespace OSGB.Data.Repository
                     MaxItemCount = -1,
                     EnableCrossPartitionQuery = true
                 }).Where(r => r.DocumentType == DocumentType).CountAsync();
+
+            var result = new ReturnResult<IEnumerable<T>>();
             var t = Task.Run(async () =>
             {
                 var query = DocumentClient.CreateDocumentQuery<T>(
                         UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
                         new FeedOptions
                         {
-                            MaxItemCount = limit,
-                            RequestContinuation = requestContinuation,
-                            MaxBufferedItemCount = limit,
+                            MaxItemCount = limit ?? 10,
+                            RequestContinuation = decodedRequestContinuation,
+                            MaxBufferedItemCount = (limit ?? 10) + 1,
                             EnableCrossPartitionQuery = true
                         })
                     .Where(r => r.DocumentType == DocumentType)
                     .AsDocumentQuery();
                 var results = new List<T>();
-                await query.ExecuteNextAsync<T>().ContinueWith(it =>
-                {
-                    if (it.IsFaulted) return;
 
-                    results.AddRange(it.Result);
-                    requestContinuation = it.Result
-                        .ResponseContinuation.IsNotNullCall(() => Convert.ToBase64String(
-                            Encoding.UTF8.GetBytes(it.Result
-                                .ResponseContinuation)));
-                });
+                if (string.IsNullOrWhiteSpace(requestContinuation) && page.HasValue && page.Value > 0)
+                {
+                    var currentPage = 0;
+                    var totalPage = Math.Ceiling(Convert.ToDouble(totalRecord.Result) / (limit ?? 10));
+                    if (totalPage < page || page < 0)
+                    {
+                        result.AddException(page < 0 ? Errors.NegativePagingNumber : Errors.ExceededPagingNumber);
+                        result.ResultType = ResultType.Failed;
+                        result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
+                        return results;
+                    }
+
+                    while (currentPage <= page)
+                    {
+                        await query.ExecuteNextAsync<T>().ContinueWith(it =>
+                        {
+                            if (it.IsFaulted)
+                            {
+                                result.AddException(it.Exception);
+                                result.ResultType = ResultType.Failed;
+                                result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
+                            }
+                            else
+                            {
+                                if (currentPage == page)
+                                {
+                                    results.AddRange(it.Result);
+                                    result.RequestContinuation = it.Result
+                                        .ResponseContinuation.IsNotNullCall(() => Convert.ToBase64String(
+                                            Encoding.UTF8.GetBytes(it.Result
+                                                .ResponseContinuation)));
+                                }
+                            }
+                        });
+                        currentPage++;
+                    }
+                }
+                else
+                {
+                    await query.ExecuteNextAsync<T>().ContinueWith(it =>
+                    {
+                        if (it.IsFaulted)
+                        {
+                            result.AddException(it.Exception);
+                            result.ResultType = ResultType.Failed;
+                            result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
+                        }
+                        else
+                        {
+                            results.AddRange(it.Result);
+                            result.ResultType = ResultType.Success;
+                            result.HumanReadableMessage.Add(HumanReadable.Acknowledged);
+                            result.RequestContinuation = it.Result
+                                .ResponseContinuation.IsNotNullCall(() => Convert.ToBase64String(
+                                    Encoding.UTF8.GetBytes(it.Result
+                                        .ResponseContinuation)));
+                        }
+                    });
+                }
 
                 return results;
             });
 
-            var result = new ReturnResult<IEnumerable<T>>
-            {
-                ResultValue = await t,
-                RequestContinuation = requestContinuation,
-                TotalRecordCount = await totalRecord,
-                ResultType = ResultType.Success
-            };
-            result.HumanReadableMessage.Add(HumanReadable.Acknowledged);
+            result.ResultValue = await t;
+            result.TotalRecordCount = await totalRecord;
             return result;
         }
 
         public async Task<IReturnResult<T>> ReadById(string id)
         {
             var result = new ReturnResult<T>();
+
             await DocumentClient.ReadDocumentAsync<T>(
                     UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id))
                 .ContinueWith(t =>
@@ -152,6 +201,7 @@ namespace OSGB.Data.Repository
             }
 
             newObject.Id = id;
+
             await DocumentClient.UpsertDocumentAsync(
                 UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id),
                 newObject).ContinueWith(t =>
