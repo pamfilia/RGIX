@@ -4,8 +4,8 @@ import { NaceComponent } from './components/nace/nace.component';
 import { NaceDetailsComponent } from './components/nace-details/nace-details.component';
 
 const routes: Routes = [
-  { path: '', component: NaceComponent },
-  { path: 'detail/:data', component: NaceDetailsComponent }];
+  { path: '', component: NaceComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
