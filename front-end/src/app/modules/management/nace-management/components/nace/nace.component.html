@@ -1,0 +1,24 @@
+<app-modal [ModalId]="'naceItemDetail'" [ModalTitle]="SelectedTitle" [ModalContentComponent]="SelectedItem"></app-modal>
+<h5>List Of Naces</h5>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Code</th>
+      <th scope="col">Definition</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of model?.resultValue;index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{item.code}}</td>
+      <td>{{item.definition}}</td>
+      <td>
+        <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#naceItemDetail" (click)="onDetails(item)">Edit</button>
+        <!-- <button class="btn btn-sm btn-info" routerLink="{{encodeParams('detail',item)}}">Edit</button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-paginator [TotalRecordCount]="model?.totalRecordCount" [PageLimit]=10 (OnPageChanged)="onPageChanged($event)"></app-paginator>

@@ -9,4 +9,11 @@
         public const string RecordHasBeenUpdated = "Record has been updated.";
         public const string RecordHasBeenDeleted = "Record has been deleted.";
     }
+
+    public static class Errors
+
+    {
+        public const string ExceededPagingNumber = "ExceededPagingNumber";
+        public const string NegativePagingNumber = "NegativePagingNumber";
+    }
 }

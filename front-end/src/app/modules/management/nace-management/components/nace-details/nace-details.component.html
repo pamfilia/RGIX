@@ -1,0 +1,24 @@
+<div *ngIf="Model">
+  <form (onsubmit)="onSubmit()" #naceForm="ngForm">
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <label class="col-form-label">Nace Code</label>
+      </div>
+      <div class="col-sm-10">{{Model.code}}</div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <label class="col-form-label">Definition</label>
+      </div>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="definition" name="definition" [(ngModel)]="Model.definition" required></textarea>
+      </div>
+    </div>
+    <div class="form-group row float-right">
+      <div class="col-sm-12">
+        <!-- <button class="btn btn-primary" (click)="goBack()">Listeye Geri Don</button> -->
+        <button type="submit" class="btn btn-primary" [disabled]="!naceForm.form.valid">Guncelle</button>
+      </div>
+    </div>
+  </form>
+</div>

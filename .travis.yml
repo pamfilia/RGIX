@@ -10,7 +10,7 @@ matrix:
         - node_modules
       before_script:
         - npm install -g @angular/compiler-cli
-        - cd front-end/OSGB
+        - cd front-end
         - yarn install
       script: yarn test
     - language: csharp
