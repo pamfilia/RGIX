@@ -118,7 +118,9 @@ namespace OSGB.Api
                 app.UseCors(cfg =>
                 {
                     cfg.WithOrigins("http://localhost:4200")
-                        .AllowAnyHeader();
+                        .AllowAnyHeader()
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod();
                 });
             }
 

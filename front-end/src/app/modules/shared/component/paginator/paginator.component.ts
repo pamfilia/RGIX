@@ -16,9 +16,9 @@ export class PaginatorComponent implements OnInit, OnChanges {
   @Input('TotalRecordCount') TotalRecordCount: number;
   @Input('PageLimit') PageLimit: number;
   @Output('OnPageChanged') OnPageChanged = new EventEmitter<number>();
-  private SelectedPage = 0;
+  SelectedPage = 0;
+  Group = 0;
   private Pages: Array<number>;
-  private Group = 0;
   private observer: Subscriber<number[]>;
   SelectedPageRange: Array<number>;
 

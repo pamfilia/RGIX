@@ -188,7 +188,7 @@ namespace OSGB.Data.Repository
             return result;
         }
 
-        public async Task<IReturnResult<bool>> Update(string id, T newObject)
+        public async Task<IReturnResult<bool>> Update(T newObject)
         {
             var result = new ReturnResult<bool>();
             if (newObject.IsNullOrNot())
@@ -200,10 +200,8 @@ namespace OSGB.Data.Repository
                 return result;
             }
 
-            newObject.Id = id;
-
             await DocumentClient.UpsertDocumentAsync(
-                UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id),
+                UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
                 newObject).ContinueWith(t =>
             {
                 if (t.IsFaulted)

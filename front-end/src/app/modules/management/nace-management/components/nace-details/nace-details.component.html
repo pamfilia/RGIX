@@ -1,24 +1,37 @@
-<div *ngIf="Model">
-  <form (onsubmit)="onSubmit()" #naceForm="ngForm">
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">Nace Code</label>
+<div>
+    <form (ngSubmit)="onSubmit()" #naceForm="ngForm">
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label class="col-form-label">Code</label>
+        </div>
+        <div *ngIf="componentMode==2; else elseBlockCode" class="col-sm-10">
+          <input class="form-control" id="code" name="code" required [(ngModel)]="Model.code">
+        </div>
+        <ng-template #elseBlockCode>
+          <div class="col-sm-10">
+              {{Model.code}}
+          </div>
+        </ng-template>
       </div>
-      <div class="col-sm-10">{{Model.code}}</div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">Definition</label>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label class="col-form-label">Definiton</label>
+        </div>
+        <div *ngIf="componentMode==1 || componentMode==2;else elseBlockDefiniton" class="col-sm-10">
+          <textarea class="form-control" id="definiton" name="definiton" required [(ngModel)]="Model.definition"></textarea>
+        </div>
+        <ng-template #elseBlockDefiniton>
+          <div class="col-sm-10">
+            {{Model.definition}}
+          </div>
+        </ng-template>
       </div>
-      <div class="col-sm-10">
-        <textarea class="form-control" id="definition" name="definition" [(ngModel)]="Model.definition" required></textarea>
+      <div class="modal-custom-footer">
+        <div class="col-sm-12 mt-2">
+          <button type="submit" class="btn float-right" [ngClass]="{'btn-success':naceForm.form.valid,'btn-danger':!naceForm.form.valid}"
+            [disabled]="!naceForm.form.valid">{{SubmitButtonText}}</button>
+        </div>
       </div>
-    </div>
-    <div class="form-group row float-right">
-      <div class="col-sm-12">
-        <!-- <button class="btn btn-primary" (click)="goBack()">Listeye Geri Don</button> -->
-        <button type="submit" class="btn btn-primary" [disabled]="!naceForm.form.valid">Guncelle</button>
-      </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
+  

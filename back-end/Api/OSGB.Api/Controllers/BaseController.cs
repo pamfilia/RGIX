@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Data;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OSGB.Data.Common;
 using OSGB.Measurement.Filters;
@@ -41,10 +42,10 @@ namespace OSGB.Api.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public async Task<JsonResult> Put(string id, [FromBody] T value)
+        [HttpPut]
+        public async Task<JsonResult> Put([FromBody] T value)
         {
-            var result = await _repository.Update(id, value);
+            var result = await _repository.Update(value);
             return Json(result);
         }
 

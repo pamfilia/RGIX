@@ -13,14 +13,46 @@ import { ComponentModeEnum } from '../../../../../common/component/ComponentMode
 
 export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implements OnInit, IItemDetailComponent {
   Model: ICompanyModel;
-
+  SubmitButtonText: string;
   constructor(private companyService: CompanyService) {
-    super(ComponentModeEnum.Edit);
+    super();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  Bind(data: ICompanyModel, componentMode: ComponentModeEnum) {
+    this.componentMode = componentMode;
+    switch (componentMode) {
+      case ComponentModeEnum.Create:
+        this.SubmitButtonText = 'Add';
+        break;
+      case ComponentModeEnum.Edit:
+        this.SubmitButtonText = 'Update';
+        break;
+      case ComponentModeEnum.Delete:
+        this.SubmitButtonText = 'Delete';
+        break;
+    }
+    this.Model = data ? data : <ICompanyModel>{};
+  }
   onSubmit() {
+    if (this.componentMode === ComponentModeEnum.Create) {
+      this.companyService.Create(this.Model).subscribe(
+        r => console.log(r.humanReadableMessage),
+        e => console.log(e),
+        () => console.log('completed'));
+    } else if (this.componentMode === ComponentModeEnum.Edit) {
+      this.companyService
+        .Update(this.Model)
+        .subscribe(
+          r => console.log(r.humanReadableMessage),
+          e => console.log(e),
+          () => console.log('completed'));
+    } else if (this.componentMode === ComponentModeEnum.Delete) {
+      this.companyService.Delete(this.Model.id).subscribe(
+        r => console.log(r.humanReadableMessage),
+        e => console.log(e),
+        () => console.log('completed'));
+    }
   }
 }

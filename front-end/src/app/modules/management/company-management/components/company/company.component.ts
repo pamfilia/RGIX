@@ -15,23 +15,23 @@ import { CompanyDetailsComponent } from '../company-details/company-details.comp
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.scss']
 })
-export class CompanyComponent extends BaseComponent<ICompanyModel[]> implements OnInit {
+export class CompanyComponent extends BaseComponent<ICompanyModel> implements OnInit {
   private static ContinuationTokens: Map<number, string> = new Map();
   private currentPage: Observable<number>;
-  private SelectedItem: ModalContentComponent;
-  private SelectedTitle: string;
+  SelectedItem: ModalContentComponent;
+  SelectedTitle: string;
 
   constructor(private companyService: CompanyService) {
-    super(ComponentModeEnum.List);
+    super();
   }
 
-  public model: ReturnResult<ICompanyModel[]>;
+  Model: ReturnResult<ICompanyModel>;
 
   ngOnInit() {
     CompanyComponent.ContinuationTokens.clear();
     this.companyService.Read().subscribe(
-      (r: ReturnResult<ICompanyModel[]>) => {
-        this.model = r;
+      (r: ReturnResult<ICompanyModel>) => {
+        this.Model = r;
         CompanyComponent.ContinuationTokens.set(1, r.requestContinuation);
       }, (e) => console.log('OOps'));
   }
@@ -40,8 +40,8 @@ export class CompanyComponent extends BaseComponent<ICompanyModel[]> implements 
     const token: string = CompanyComponent.ContinuationTokens.get(page);
     const isTokenNull = isNullOrUndefined(token);
     this.companyService.Read(isTokenNull ? page : null, token).subscribe(
-      (r: ReturnResult<ICompanyModel[]>) => {
-        this.model = r;
+      (r: ReturnResult<ICompanyModel>) => {
+        this.Model = r;
         if (page > 0) {
           CompanyComponent.ContinuationTokens.set(page + 1, r.requestContinuation);
         }
@@ -49,8 +49,16 @@ export class CompanyComponent extends BaseComponent<ICompanyModel[]> implements 
   }
 
   onDetails(item: ICompanyModel): void {
-    this.SelectedTitle = item.name + ' Detaylari';
-    this.SelectedItem = new ModalContentComponent(CompanyDetailsComponent, item);
+    this.SelectedTitle = item.name + ' Details';
+    this.SelectedItem = new ModalContentComponent(CompanyDetailsComponent, ComponentModeEnum.Edit, item);
+  }
+  onDelete(item: ICompanyModel): void {
+    this.SelectedTitle = 'Delete :' + item.name;
+    this.SelectedItem = new ModalContentComponent(CompanyDetailsComponent, ComponentModeEnum.Delete, item);
+  }
+  onAdd() {
+    this.SelectedTitle = 'Add New';
+    this.SelectedItem = new ModalContentComponent(CompanyDetailsComponent, ComponentModeEnum.Create, null);
   }
 }
 
