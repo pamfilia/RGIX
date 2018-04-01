@@ -1,6 +1,6 @@
 export class ReturnResult<T> {
     resultType: Number;
-    resultValue: T;
+    resultValue: T[];
     requestContinuation: string;
     humanReadableMessage: string[];
     totalRecordCount: Number;

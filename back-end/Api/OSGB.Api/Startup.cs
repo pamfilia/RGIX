@@ -97,6 +97,7 @@ namespace OSGB.Api
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IRepository<User>, UserRepository>();
+            services.AddScoped<IRepository<Company>, CompanyRepository>();
             services.AddScoped<IRepository<Nace>, NaceRepository>();
 
             #endregion
@@ -117,7 +118,9 @@ namespace OSGB.Api
                 app.UseCors(cfg =>
                 {
                     cfg.WithOrigins("http://localhost:4200")
-                        .AllowAnyHeader();
+                        .AllowAnyHeader()
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod();
                 });
             }
 

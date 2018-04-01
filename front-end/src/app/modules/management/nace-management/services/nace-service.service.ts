@@ -6,7 +6,7 @@ import { ReturnResult } from '../../../../common/service/ReturnResult';
 import { GlobalService } from '../../../../services/global.service';
 
 @Injectable()
-export class NaceService extends BaseService<INaceModel[]> {
+export class NaceService extends BaseService<INaceModel> {
   constructor(globalService: GlobalService) {
     super(globalService);
     this.urlSuffix = 'nace';

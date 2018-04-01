@@ -17,8 +17,8 @@ export class ModalComponent implements OnInit, OnChanges {
   @ViewChild(ModalContentHostDirective) modalContentHost: ModalContentHostDirective;
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (!this.ButtonOptions) {
       this.ButtonOptions = new ModalButtonOptions();
@@ -29,7 +29,7 @@ export class ModalComponent implements OnInit, OnChanges {
       viewContainerRef.clear();
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.ModalContentComponent.component);
       const componentRef = viewContainerRef.createComponent(componentFactory);
-      (<IItemDetailComponent>componentRef.instance).Model = this.ModalContentComponent.data;
+      (<IItemDetailComponent>componentRef.instance).Bind(this.ModalContentComponent.data, this.ModalContentComponent.componentMode);
     }
   }
 }

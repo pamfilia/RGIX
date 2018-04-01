@@ -4,7 +4,7 @@ import { ICompanyModel } from '../../../../models/company/ICompanyModel';
 import { GlobalService } from '../../../../services/global.service';
 
 @Injectable()
-export class CompanyService extends BaseService<ICompanyModel[]> {
+export class CompanyService extends BaseService<ICompanyModel> {
   constructor(globalService: GlobalService) {
     super(globalService);
     this.urlSuffix = 'company';

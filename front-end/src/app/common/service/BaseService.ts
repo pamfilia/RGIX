@@ -5,19 +5,20 @@ import { ajaxGet, ajaxPut, ajaxDelete, ajaxPost, AjaxResponse } from 'rxjs/obser
 import { retry, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { isNullOrUndefined } from 'util';
+import { HttpHeaders } from '@angular/common/http';
 export class BaseService<T> {
     protected urlSuffix: string;
     private readonly emptyResult: ReturnResult<T> =
         {
             resultType: 1,
-            resultValue: <T>{},
+            resultValue: null,
             totalRecordCount: 0,
-            requestContinuation: '',
+            requestContinuation: null,
             humanReadableMessage: ['Oops']
         };
     constructor(protected globalService: GlobalService) { }
 
-    Read(page?: number, requestContinuation?: string, limit?: number): Observable<ReturnResult<T>> | any {
+    Read(page?: number, requestContinuation?: string, limit?: number): Observable<ReturnResult<T>> {
         const url = this.globalService.ApiBaseUrl +
             this.urlSuffix + '/?' +
             (isNullOrUndefined(page) ? '' : 'p=' + page + '&') +
@@ -38,7 +39,7 @@ export class BaseService<T> {
         });
     }
 
-    ReadById(id: any): Observable<ReturnResult<T>> | any {
+    ReadById(id: any): Observable<ReturnResult<T>> {
         return new Observable<ReturnResult<T>>(o => {
             ajaxGet(this.globalService.ApiBaseUrl + this.urlSuffix)
                 .pipe(retry(this.globalService.AjaxReqRetryCount),
@@ -54,9 +55,10 @@ export class BaseService<T> {
         });
     }
 
-    Create(): Observable<ReturnResult<T>> | any {
+    Create(item: T): Observable<ReturnResult<T>> {
         return new Observable<ReturnResult<T>>(o => {
-            ajaxPost(this.globalService.ApiBaseUrl + this.urlSuffix)
+            ajaxPost(this.globalService.ApiBaseUrl + this.urlSuffix,
+                JSON.stringify(item), { 'Content-Type': 'application/json' })
                 .pipe(retry(this.globalService.AjaxReqRetryCount),
                     catchError((e, v) => {
                         o.error(e);
@@ -70,9 +72,10 @@ export class BaseService<T> {
         });
     }
 
-    Update(): Observable<ReturnResult<T>> | any {
+    Update(item: T): Observable<ReturnResult<T>> {
         return new Observable<ReturnResult<T>>(o => {
-            ajaxPut(this.globalService.ApiBaseUrl + this.urlSuffix)
+            ajaxPut(this.globalService.ApiBaseUrl + this.urlSuffix,
+                JSON.stringify(item), { 'Content-Type': 'application/json' })
                 .pipe(retry(this.globalService.AjaxReqRetryCount),
                     catchError((e, v) => {
                         o.error(e);
@@ -86,9 +89,9 @@ export class BaseService<T> {
         });
     }
 
-    Delete(): Observable<ReturnResult<T>> | any {
+    Delete(id: any): Observable<ReturnResult<T>> | any {
         return new Observable<ReturnResult<T>>(o => {
-            ajaxDelete(this.globalService.ApiBaseUrl + this.urlSuffix)
+            ajaxDelete(this.globalService.ApiBaseUrl + this.urlSuffix + '/' + id)
                 .pipe(retry(this.globalService.AjaxReqRetryCount),
                     catchError((e, v) => {
                         o.error(e);

@@ -13,6 +13,6 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   declarations: [NaceComponent, NaceDetailsComponent],
   providers: [NaceService],
-  entryComponents: [NaceComponent, NaceDetailsComponent]
+  entryComponents: [NaceDetailsComponent]
 })
 export class NaceManagementModule { }
