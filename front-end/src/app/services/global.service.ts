@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 
 @Injectable()
 export class GlobalService {
 
-  ApiBaseUrl = 'https://osgb.azurewebsites.net/api/';
+  ApiBaseUrl = isDevMode ?
+    'http://localhost:5000/api/' : 'https://osgb.azurewebsites.net/api/';
   AjaxReqRetryCount = 3;
   constructor() {
     Object.freeze(this);
-   }
+  }
 }

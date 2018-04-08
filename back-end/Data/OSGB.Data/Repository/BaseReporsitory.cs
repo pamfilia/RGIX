@@ -43,7 +43,7 @@ namespace OSGB.Data.Repository
                 result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
                 return result;
             }
-
+            newObject.Created=DateTime.Now;
             await DocumentClient.CreateDocumentAsync(
                 UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
                 newObject).ContinueWith(t =>
@@ -119,14 +119,12 @@ namespace OSGB.Data.Repository
                             }
                             else
                             {
-                                if (currentPage == page)
-                                {
-                                    results.AddRange(it.Result);
-                                    result.RequestContinuation = it.Result
-                                        .ResponseContinuation.IsNotNullCall(() => Convert.ToBase64String(
-                                            Encoding.UTF8.GetBytes(it.Result
-                                                .ResponseContinuation)));
-                                }
+                                if (currentPage != page) return;
+                                results.AddRange(it.Result);
+                                result.RequestContinuation = it.Result
+                                    .ResponseContinuation.IsNotNullCall(() => Convert.ToBase64String(
+                                        Encoding.UTF8.GetBytes(it.Result
+                                            .ResponseContinuation)));
                             }
                         });
                         currentPage++;

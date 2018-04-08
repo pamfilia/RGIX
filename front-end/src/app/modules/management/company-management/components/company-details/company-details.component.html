@@ -1,82 +1,260 @@
 <div>
   <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">Name</label>
-      </div>
-      <div *ngIf="componentMode==1 || componentMode==2; else elseBlockName" class="col-sm-10">
-        <input class="form-control" id="name" name="name" required [(ngModel)]="Model.name">
-      </div>
-      <ng-template #elseBlockName>
-        <div class="col-sm-10">
-          {{Model.name}}
+    <ul class="nav nav-tabs" id="companyTabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false">Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="services-tab" data-toggle="tab" href="#services" role="tab" aria-controls="services" aria-selected="false">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+      </li>
+    </ul>
+    <!-- TAB-I -->
+    <div class="tab-content" id="companyTabsContent">
+      <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="form-group row mt-3">
+          <div class="col-sm-3">
+            <label class="col-form-label">Name</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockName" class="col-sm-9">
+            <input class="form-control" id="name" required [(ngModel)]="Model.name" name="name">
+          </div>
+          <ng-template #elseBlockName>
+            <div class="col-sm-9">
+              {{Model.name}}
+            </div>
+          </ng-template>
         </div>
-      </ng-template>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">Title</label>
-      </div>
-      <div *ngIf="componentMode==1 || componentMode==2;else elseBlockTitle" class="col-sm-10">
-        <input class="form-control" id="title" name="title" required [(ngModel)]="Model.title">
-      </div>
-      <ng-template #elseBlockTitle>
-        <div class="col-sm-10">
-          {{Model.title}}
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Title</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2;else elseBlockTitle" class="col-sm-9">
+            <input class="form-control" id="title" required [(ngModel)]="Model.title" name="title">
+          </div>
+          <ng-template #elseBlockTitle>
+            <div class="col-sm-9">
+              {{Model.title}}
+            </div>
+          </ng-template>
         </div>
-      </ng-template>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">Danger Level</label>
-      </div>
-      <div *ngIf="componentMode==1 || componentMode==2;else elseBlockDangerLevel" class="col-sm-10">
-        <input class="form-control" id="dangerLevel" name="dangerLevel" required [(ngModel)]="Model.dangerLevel">
-      </div>
-      <ng-template #elseBlockDangerLevel>
-        <div class="col-sm-10">
-          {{Model.dangerLevel}}
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Phone</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockPhone" class="col-sm-9">
+            <input class="form-control" id="phone" required [(ngModel)]="Model.phone" name="phone">
+          </div>
+          <ng-template #elseBlockPhone>
+            <div class="col-sm-9">
+              {{Model.phone}}
+            </div>
+          </ng-template>
         </div>
-      </ng-template>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">Address</label>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Fax</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockFax" class="col-sm-9">
+            <input class="form-control" id="fax" required [(ngModel)]="Model.fax" name="fax">
+          </div>
+          <ng-template #elseBlockFax>
+            <div class="col-sm-9">
+              {{Model.fax}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Tax Office</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockTaxOffice" class="col-sm-9">
+            <input class="form-control" id="taxOffice" required [(ngModel)]="Model.taxOffice" name="taxOffice">
+          </div>
+          <ng-template #elseBlockTaxOffice>
+            <div class="col-sm-9">
+              {{Model.taxOffice}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Tax Number</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockTaxNumber" class="col-sm-9">
+            <input class="form-control" id="taxNumber" required [(ngModel)]="Model.taxNumber" name="taxNumber">
+          </div>
+          <ng-template #elseBlockTaxNumber>
+            <div class="col-sm-9">
+              {{Model.taxNumber}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Identity Number (SGK)</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockIdentityNumber" class="col-sm-9">
+            <input class="form-control" id="identityNumber" required [(ngModel)]="Model.identityNumber" name="identityNumber">
+          </div>
+          <ng-template #elseBlockIdentityNumber>
+            <div class="col-sm-9">
+              {{Model.identityNumber}}
+            </div>
+          </ng-template>
+        </div>
       </div>
-      <div *ngIf="componentMode==1 || componentMode==2; else elseBlockAddress" class="col-sm-10">
-        <input class="form-control" id="address" name="address" required [(ngModel)]="Model.address">
+      <!-- TAB-II -->
+      <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+        <div class="form-group row mt-3">
+          <div class="col-sm-3">
+            <label class="col-form-label">Danger Level</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2;else elseBlockDangerLevel" class="col-sm-9">
+            <select class="form-control" id="dangerLevel" [(ngModel)]="Model.dangerLevel" name="dangerLevel">
+              <option value="1">Extreme</option>
+              <option value="2">Moderate</option>
+              <option value="3">Low</option>
+            </select>
+          </div>
+          <ng-template #elseBlockDangerLevel>
+            <div class="col-sm-9">
+              {{Model.dangerLevel}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Total Personel Count</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockTaxPersonelCount" class="col-sm-9">
+            <input class="form-control" id="totalPersonalCount" required [(ngModel)]="Model.totalPersonalCount" name="totalPersonalCount">
+          </div>
+          <ng-template #elseBlockTaxPersonelCount>
+            <div class="col-sm-9">
+              {{Model.totalPersonalCount}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Keywords</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockKeywords" class="col-sm-9">
+            <input class="form-control" id="keywords" required [(ngModel)]="Model.keywords" name="keywords">
+          </div>
+          <ng-template #elseBlockKeywords>
+            <div class="col-sm-9">
+              {{Model.keywords}}
+            </div>
+          </ng-template>
+        </div>
       </div>
-      <ng-template #elseBlockAddress>
-          <div class="col-sm-10">
+      <!-- TAB-III -->
+      <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="services-tab">
+        <app-service-type></app-service-type>
+        <div class="container-fluid mt-1">
+          <div class="row">
+            <div class="col-sm-10">
+              <h5 class="mt-1">Company
+                <b>Services</b>
+              </h5>
+            </div>
+            <div class="col-sm-2">
+              <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" href="#serviceTypeComponent" data-placement="top" title="New" (click)="onToggle()">
+                <i class="material-icons" [hidden]="addButtonToggle">&#xE147;</i>
+                <i class="material-icons" [hidden]="!addButtonToggle">&#xE15C;</i>
+              </button>
+            </div>
+          </div>
+          <table class="table table-striped table-hover mt-1">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Details</th>
+                <th scope="col">Contract Start Date</th>
+                <th scope="col">Contract End Date</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of Model?.serviceTypes;index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.details}}</td>
+                <td>{{item.contractStartDate}}</td>
+                <td>{{item.contractEndDate}}</td>
+                <td>
+                  <a href="" class="text-danger" data-placement="top" title="Delete">
+                    <i class="material-icons">&#xE92B;</i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- TAB-IV -->
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="form-group row mt-3">
+          <div class="col-sm-3">
+            <label class="col-form-label">Address</label>
+          </div>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockAddress" class="col-sm-9">
+            <textarea class="form-control" id="address" required [(ngModel)]="Model.address" name="address"></textarea>
+          </div>
+          <ng-template #elseBlockAddress>
+            <div class="col-sm-9">
               {{Model.address}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Provience</label>
           </div>
-        </ng-template>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">Provience</label>
-      </div>
-      <div *ngIf="componentMode==1 || componentMode==2; else elseBlockProvience" class="col-sm-10">
-        <input class="form-control" id="provience" name="provience" required [(ngModel)]="Model.provience">
-      </div>
-      <ng-template #elseBlockProvience>
-          <div class="col-sm-10">
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockProvience" class="col-sm-9">
+            <input class="form-control" id="provience" required [(ngModel)]="Model.provience" name="provience">
+          </div>
+          <ng-template #elseBlockProvience>
+            <div class="col-sm-9">
               {{Model.provience}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">City</label>
           </div>
-        </ng-template>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <label class="col-form-label">City</label>
-      </div>
-      <div *ngIf="componentMode==1 || componentMode==2; else elseBlockCity" class="col-sm-10">
-        <input class="form-control" id="city" name="city" required [(ngModel)]="Model.city">
-      </div>
-      <ng-template #elseBlockCity>
-          <div class="col-sm-10">
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockCity" class="col-sm-9">
+            <input class="form-control" id="city" required [(ngModel)]="Model.city" name="city">
+          </div>
+          <ng-template #elseBlockCity>
+            <div class="col-sm-9">
               {{Model.city}}
+            </div>
+          </ng-template>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label class="col-form-label">Coordinates</label>
           </div>
-        </ng-template>
+          <div *ngIf="componentMode==1 || componentMode==2; else elseBlockCoordinates" class="col-sm-9">
+            <input class="form-control" id="latLong" required [(ngModel)]="Model.latLong" name="latLong">
+          </div>
+          <ng-template #elseBlockCoordinates>
+            <div class="col-sm-9">
+              {{Model.latLong}}
+            </div>
+          </ng-template>
+        </div>
+      </div>
     </div>
     <div class="modal-custom-footer">
       <div class="col-sm-12 mt-2">

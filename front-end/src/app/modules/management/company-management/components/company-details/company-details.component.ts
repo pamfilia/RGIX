@@ -13,6 +13,7 @@ import { ComponentModeEnum } from '../../../../../common/component/ComponentMode
 
 export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implements OnInit, IItemDetailComponent {
   Model: ICompanyModel;
+  protected addButtonToggle = false;
   SubmitButtonText: string;
   constructor(private companyService: CompanyService) {
     super();
@@ -54,5 +55,9 @@ export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implem
         e => console.log(e),
         () => console.log('completed'));
     }
+  }
+  onToggle() {
+    this.addButtonToggle = !this.addButtonToggle;
+    return this.addButtonToggle;
   }
 }
