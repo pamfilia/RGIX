@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './modules/auth/auth.module#AuthModule' },
   { path: 'nace-management', loadChildren: './modules/management/nace-management/nace-management.module#NaceManagementModule'},
   { path: 'company-management', loadChildren: './modules/management/company-management/company-management.module#CompanyManagementModule'},
+  { path: 'proposal', loadChildren: './modules/proposal/proposal.module#ProposalModule'}
 ];
 
 @NgModule({

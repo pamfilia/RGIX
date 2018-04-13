@@ -9,6 +9,7 @@ namespace OSGB.Data.Entity
         public string Name { get; set; }
         public DateTime ContractStartDate { get; set; }
         public DateTime ContractEndDate { get; set; }
+        public decimal ProposalAmount { get; set; }
         public string Details { get; set; }
         public DateTime Created { get; set; }
         public string Updated { get; set; }
