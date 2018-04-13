@@ -46,7 +46,7 @@ export class NaceComponent extends BaseComponent<INaceModel> implements OnInit {
       (e) => console.log('OOps'));
   }
 
- 
+
   onDetails(item: INaceModel): void {
     this.SelectedTitle = item.code + ' Details';
     this.SelectedItem = new ModalContentComponent(NaceDetailsComponent, ComponentModeEnum.Edit, item);

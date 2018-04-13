@@ -16,6 +16,7 @@ export class PaginatorComponent implements OnInit, OnChanges {
   @Input('TotalRecordCount') TotalRecordCount: number;
   @Input('PageLimit') PageLimit: number;
   @Output('OnPageChanged') OnPageChanged = new EventEmitter<number>();
+  @Output('Indexer') Indexer = 0;
   SelectedPage = 0;
   Group = 0;
   private Pages: Array<number>;
@@ -39,6 +40,7 @@ export class PaginatorComponent implements OnInit, OnChanges {
 
   onPageChange(page: number) {
     this.SelectedPage = page;
+    this.Indexer = this.PageLimit * page;
     this.OnPageChanged.emit(this.SelectedPage);
   }
   onGroupChange(isNext: boolean) {
