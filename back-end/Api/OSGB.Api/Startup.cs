@@ -100,7 +100,7 @@ namespace OSGB.Api
             services.AddScoped<IRepository<Company>, CompanyRepository>();
             services.AddScoped<IRepository<Nace>, NaceRepository>();
             services.AddScoped<IRepository<Proposal>, ProposalRepository>();
-
+            services.AddScoped<IRepository<Interview>, InterviewRepository>();
             #endregion
 
             #region Filters
