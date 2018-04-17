@@ -99,6 +99,8 @@ namespace OSGB.Api
             services.AddScoped<IRepository<User>, UserRepository>();
             services.AddScoped<IRepository<Company>, CompanyRepository>();
             services.AddScoped<IRepository<Nace>, NaceRepository>();
+            services.AddScoped<IRepository<Interview>, InterviewRepository>();
+            services.AddScoped<IRepository<Proposal>, ProposalRepository>();
 
             #endregion
 
