@@ -6,13 +6,15 @@ import { InterviewComponent } from './components/interview/interview.component';
 import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
 import { InterviewService } from './services/interview-service.service';
 import { SharedModule } from '../shared/shared.module';
+import { ServiceTypeComponent } from './components/service-type/service-type.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     InterviewRoutingModule
   ],
-  declarations: [InterviewComponent, InterviewDetailsComponent],
+  declarations: [InterviewComponent, InterviewDetailsComponent, ServiceTypeComponent],
   providers: [InterviewService],
   entryComponents: [InterviewDetailsComponent]
 
