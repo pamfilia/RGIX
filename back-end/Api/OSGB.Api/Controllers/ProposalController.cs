@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OSGB.Data.Common;
+﻿using OSGB.Data.Common;
 using OSGB.Data.Entity;
 
 namespace OSGB.Api.Controllers

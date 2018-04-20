@@ -11,7 +11,7 @@ namespace OSGB.Common.Extensions.Object
 
         public static T IsNotNullCall<T>(this object obj, Func<T> action)
         {
-            return obj == null ? default(T) : action();
+            return obj == null ? default : action();
         }
     }
 }

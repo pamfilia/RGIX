@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OSGB.Data.Common;
 using OSGB.Measurement.Filters;

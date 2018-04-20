@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using OSGB.Common.Interfaces;
@@ -11,27 +11,27 @@ namespace OSGB.Data.Repository
     {
         public Task<IReturnResult<bool>> Create(ServiceType newObject)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Task<IReturnResult<IEnumerable<ServiceType>>> ReadAll(int? page, string requestContinuation, int? limit)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Task<IReturnResult<ServiceType>> ReadById(string id)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Task<IReturnResult<bool>> Update(ServiceType newObject)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Task<IReturnResult<bool>> Delete(string id)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

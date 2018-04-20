@@ -43,7 +43,8 @@ namespace OSGB.Data.Repository
                 result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
                 return result;
             }
-            newObject.Created=DateTime.Now;
+
+            newObject.Created = DateTime.Now;
             await DocumentClient.CreateDocumentAsync(
                 UriFactory.CreateDocumentCollectionUri(DatabaseInfo.DatabaseName, CollectionName),
                 newObject).ContinueWith(t =>
