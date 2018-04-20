@@ -33,24 +33,46 @@
 @import "carousel";
 @import "utilities";
 // @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin-ext');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&subset=latin-ext');
-body {
-  margin: 0; // font-family: 'Roboto', sans-serif;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: .85em;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff;
-}
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
+// @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&subset=latin-ext');
+// body {
+//   margin: 0; // font-family: 'Roboto', sans-serif;
+//   font-family: 'Noto Sans', sans-serif;
+//   font-size: .85em;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   color: #212529;
+//   text-align: left;
+//   background-color: #fff;
+// }
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+// body {
+//   background-color: black;
+// }
+.osgb-top {
+  margin-top: 75px;
 }
 
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+.osgb-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-.modal-custom-footer{
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42A948;
+  /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442;
+  /* red */
+}
+
+.modal-custom-footer {
   border-top: 1px solid #e9ecef;
 }

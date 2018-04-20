@@ -1,0 +1,17 @@
+<mat-sidenav-container class="sidenav-container" (click)="sideNavigator.toggle()">
+<mat-sidenav #sideNavigator 
+mode='side' 
+fixedInViewport="Non-fixed" 
+fixedTopGap="56">
+  <mat-nav-list>
+    <a mat-list-item routerLink="/nace-management">
+      <mat-icon>view_list</mat-icon>Nace Management</a>
+    <a mat-list-item routerLink="/company-management">
+      <mat-icon>import_contacts</mat-icon>Company Management</a>
+    <a mat-list-item routerLink="/proposal">
+      <mat-icon>inbox</mat-icon>Proposal Management</a>
+    <a mat-list-item routerLink="/interview">
+      <mat-icon>chat</mat-icon>Interview Management</a>
+  </mat-nav-list>
+</mat-sidenav>
+</mat-sidenav-container>

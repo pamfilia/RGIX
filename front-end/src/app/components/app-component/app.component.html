@@ -1,2 +1,5 @@
-<app-header-nav></app-header-nav>
+<app-toolbar [drawerHandler]="snav.sideNavigator"></app-toolbar>
+<app-side-nav #snav></app-side-nav>
+<div class="container-fluid osgb-top">
 <router-outlet></router-outlet>
+</div>
