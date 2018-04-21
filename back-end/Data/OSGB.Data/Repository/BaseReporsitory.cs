@@ -16,7 +16,7 @@ using OSGB.Data.Constants;
 
 namespace OSGB.Data.Repository
 {
-    public abstract class BaseReporsitory<T> : IRepository<T> where T : IEntity, new()
+    public abstract class BaseReporsitory<T> : IRepository<T> where T : class, IEntity, new()
     {
         protected readonly DocumentClient DocumentClient;
         protected readonly IDocumentResponseMapper DocumentResponseMapper;
@@ -38,7 +38,7 @@ namespace OSGB.Data.Repository
             if (newObject.IsNullOrNot())
             {
                 result.ResultValue = false;
-                result.AddException(new Exception($"{nameof(newObject)} is null"));
+                result.AddException($"{nameof(newObject)} is null");
                 result.ResultType = ResultType.Failed;
                 result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
                 return result;
@@ -105,6 +105,7 @@ namespace OSGB.Data.Repository
                         result.AddException(page < 0 ? Errors.NegativePagingNumber : Errors.ExceededPagingNumber);
                         result.ResultType = ResultType.Failed;
                         result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
+                        results.Add(result);
                         return results;
                     }
 
@@ -193,7 +194,7 @@ namespace OSGB.Data.Repository
             if (newObject.IsNullOrNot())
             {
                 result.ResultValue = false;
-                result.AddException(new Exception($"{nameof(newObject)} is null"));
+                result.AddException($"{nameof(newObject)} is null");
                 result.ResultType = ResultType.Failed;
                 result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
                 return result;
@@ -222,11 +223,11 @@ namespace OSGB.Data.Repository
 
         public async Task<IReturnResult<bool>> Delete(string id)
         {
-            var result = new ReturnResult<bool>();
-            await DocumentClient.DeleteDocumentAsync(
+            return await DocumentClient.DeleteDocumentAsync(
                     UriFactory.CreateDocumentUri(DatabaseInfo.DatabaseName, CollectionName, id))
                 .ContinueWith(t =>
                 {
+                    var result = new ReturnResult<bool>();
                     if (t.IsFaulted)
                     {
                         result.ResultValue = false;
@@ -240,8 +241,9 @@ namespace OSGB.Data.Repository
                         result.ResultType = DocumentResponseMapper.Identify(t.Result.StatusCode).Item1;
                         result.HumanReadableMessage.Add(HumanReadable.RecordHasBeenDeleted);
                     }
+
+                    return result;
                 });
-            return result;
         }
     }
 }
