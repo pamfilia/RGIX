@@ -12,13 +12,13 @@
         <label class="col-form-label">Service Type</label>
       </div>
       <div class="col-sm-9">
-          <select class="form-control" id="name" [(ngModel)]="Model.name" name="name">
-            <option value="Occupational Health and Safety">Occupational Health and Safety</option>
-            <option value="Environment">Environment</option>
-            <option value="Environmental Impact Assessment">Environmental Impact Assessment</option>
-            <option value="Laboratory">Laboratory</option>
-            <option value="Software">Software</option>
-          </select>
+        <select class="form-control" id="name" [(ngModel)]="Model.name" name="name">
+          <option value="Occupational Health and Safety">Occupational Health and Safety</option>
+          <option value="Environment">Environment</option>
+          <option value="Environmental Impact Assessment">Environmental Impact Assessment</option>
+          <option value="Laboratory">Laboratory</option>
+          <option value="Software">Software</option>
+        </select>
       </div>
     </div>
     <div class="form-group row">
@@ -34,7 +34,11 @@
         <label class="col-form-label">Contract Start Date</label>
       </div>
       <div class="col-sm-9">
-        <input class="form-control" id="contractStartDate" required [(ngModel)]="Model.contractStartDate" name="contractStartDate">
+        <mat-form-field>
+          <input matInput [matDatepicker]="contractStartDate" id="contractStartDate" required [(ngModel)]="Model.contractStartDate" name="contractStartDate">
+          <mat-datepicker-toggle matSuffix [for]="contractStartDate"></mat-datepicker-toggle>
+          <mat-datepicker #contractStartDate></mat-datepicker>
+        </mat-form-field>
       </div>
     </div>
     <div class="form-group row">
@@ -42,7 +46,11 @@
         <label class="col-form-label">Contract End Date</label>
       </div>
       <div class="col-sm-9">
-        <input class="form-control" id="contractEndDate" required [(ngModel)]="Model.contractEndDate" name="contractEndDate">
+        <mat-form-field>
+          <input matInput [matDatepicker]="contractEndDate" id="contractEndDate" required [(ngModel)]="Model.contractEndDate" name="contractEndDate">
+          <mat-datepicker-toggle matSuffix [for]="contractEndDate"></mat-datepicker-toggle>
+          <mat-datepicker #contractEndDate></mat-datepicker>
+        </mat-form-field>
       </div>
     </div>
     <div class="modal-custom-footer">

@@ -105,7 +105,6 @@ namespace OSGB.Data.Repository
                         result.AddException(page < 0 ? Errors.NegativePagingNumber : Errors.ExceededPagingNumber);
                         result.ResultType = ResultType.Failed;
                         result.HumanReadableMessage.Add(HumanReadable.OopsSomethingWentWrong);
-                        results.Add(result);
                         return results;
                     }
 

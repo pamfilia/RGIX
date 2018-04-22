@@ -39,9 +39,9 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  MatFormFieldModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MediaMatcher } from '@angular/cdk/layout';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
+    MatFormFieldModule,
     MatCheckboxModule,
     MatChipsModule,
     MatStepperModule,
@@ -87,7 +88,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     MatTooltipModule,
     BrowserAnimationsModule
   ],
-  providers: [GlobalService, MediaMatcher],
+  providers: [GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,7 +19,9 @@ export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implem
     super();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (!this.Model.dangerLevel) { this.Model.dangerLevel = 0; }
+  }
 
   Bind(data: ICompanyModel, componentMode: ComponentModeEnum) {
     this.componentMode = componentMode;

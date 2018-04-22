@@ -22,7 +22,7 @@
             <label class="col-form-label">Name</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockName" class="col-sm-9">
-            <input class="form-control" id="name" required [(ngModel)]="Model.name" name="name">
+            <input class="form-control" id="name" required [(ngModel)]="Model.name" name="name" placeholder="Company Name">
           </div>
           <ng-template #elseBlockName>
             <div class="col-sm-9">
@@ -35,7 +35,7 @@
             <label class="col-form-label">Title</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2;else elseBlockTitle" class="col-sm-9">
-            <input class="form-control" id="title" required [(ngModel)]="Model.title" name="title">
+            <input class="form-control" id="title" required [(ngModel)]="Model.title" name="title" placeholder="Company Title">
           </div>
           <ng-template #elseBlockTitle>
             <div class="col-sm-9">
@@ -48,7 +48,8 @@
             <label class="col-form-label">Phone</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockPhone" class="col-sm-9">
-            <input class="form-control" id="phone" required [(ngModel)]="Model.phone" name="phone">
+            <input type="tel" class="form-control" id="phone" mask='0(000) 000-0000' required maxlength="15" [(ngModel)]="Model.phone"
+              name="phone" placeholder="0(123) 456 78 90">
           </div>
           <ng-template #elseBlockPhone>
             <div class="col-sm-9">
@@ -61,7 +62,8 @@
             <label class="col-form-label">Fax</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockFax" class="col-sm-9">
-            <input class="form-control" id="fax" required [(ngModel)]="Model.fax" name="fax">
+            <input type="tel" class="form-control" id="fax" required mask='0(000) 000-0000' maxlength="15" [(ngModel)]="Model.fax" name="fax"
+              placeholder="0(123) 456 78 90">
           </div>
           <ng-template #elseBlockFax>
             <div class="col-sm-9">
@@ -74,7 +76,7 @@
             <label class="col-form-label">Tax Office</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockTaxOffice" class="col-sm-9">
-            <input class="form-control" id="taxOffice" required [(ngModel)]="Model.taxOffice" name="taxOffice">
+            <input class="form-control" id="taxOffice" required [(ngModel)]="Model.taxOffice" name="taxOffice" placeholder="Tax Office">
           </div>
           <ng-template #elseBlockTaxOffice>
             <div class="col-sm-9">
@@ -87,7 +89,7 @@
             <label class="col-form-label">Tax Number</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockTaxNumber" class="col-sm-9">
-            <input class="form-control" id="taxNumber" required [(ngModel)]="Model.taxNumber" name="taxNumber">
+            <input type="text" class="form-control" id="taxNumber" required [(ngModel)]="Model.taxNumber" name="taxNumber" placeholder="Tax Number">
           </div>
           <ng-template #elseBlockTaxNumber>
             <div class="col-sm-9">
@@ -100,7 +102,7 @@
             <label class="col-form-label">Identity Number (SGK)</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockIdentityNumber" class="col-sm-9">
-            <input class="form-control" id="identityNumber" required [(ngModel)]="Model.identityNumber" name="identityNumber">
+            <input class="form-control" id="identityNumber" required [(ngModel)]="Model.identityNumber" name="identityNumber" placeholder="SGK Number">
           </div>
           <ng-template #elseBlockIdentityNumber>
             <div class="col-sm-9">
@@ -116,14 +118,15 @@
             <label class="col-form-label">Danger Level</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2;else elseBlockDangerLevel" class="col-sm-9">
-            <select class="form-control" id="dangerLevel" [(ngModel)]="Model.dangerLevel" name="dangerLevel">
+            <select #dangerLevel class="form-control" [ngClass]="{'text-danger':dangerLevel.value==1,'text-warning':dangerLevel.value==2,'text-success':dangerLevel.value==3}" [(ngModel)]="Model.dangerLevel" id="dangerLevel" name="dangerLevel" placeholder="Danger Level">
+              <option value="0" selected>Please select</option>
               <option value="1">Extreme</option>
               <option value="2">Moderate</option>
               <option value="3">Low</option>
             </select>
           </div>
           <ng-template #elseBlockDangerLevel>
-            <div class="col-sm-9">
+            <div class="col-sm-9" [ngClass]="{'text-danger':Model?.dangerLevel==1,'text-warning':Model?.dangerLevel==2,'text-success':Model?.dangerLevel==3}" id="dangerLevel" [(ngModel)]="Model.dangerLevel">
               {{Model.dangerLevel}}
             </div>
           </ng-template>
@@ -133,7 +136,8 @@
             <label class="col-form-label">Total Personel Count</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockTaxPersonelCount" class="col-sm-9">
-            <input class="form-control" id="totalPersonalCount" required [(ngModel)]="Model.totalPersonalCount" name="totalPersonalCount">
+            <input class="form-control" id="totalPersonalCount" mask='99999' maxlength="5" required [(ngModel)]="Model.totalPersonalCount"
+              name="totalPersonalCount" placeholder="Total Employee">
           </div>
           <ng-template #elseBlockTaxPersonelCount>
             <div class="col-sm-9">
@@ -146,7 +150,7 @@
             <label class="col-form-label">Keywords</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockKeywords" class="col-sm-9">
-            <input class="form-control" id="keywords" required [(ngModel)]="Model.keywords" name="keywords">
+            <input class="form-control" id="keywords" required [(ngModel)]="Model.keywords" name="keywords" placeholder="Keywords">
           </div>
           <ng-template #elseBlockKeywords>
             <div class="col-sm-9">
@@ -166,7 +170,8 @@
               </h5>
             </div>
             <div class="col-sm-2">
-              <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" href="#serviceTypeComponent" data-placement="top" title="New" (click)="onToggle()">
+              <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" href="#serviceTypeComponent" data-placement="top"
+                title="New" (click)="onToggle()">
                 <i class="material-icons" [hidden]="addButtonToggle">&#xE147;</i>
                 <i class="material-icons" [hidden]="!addButtonToggle">&#xE15C;</i>
               </button>
@@ -207,7 +212,7 @@
             <label class="col-form-label">Address</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockAddress" class="col-sm-9">
-            <textarea class="form-control" id="address" required [(ngModel)]="Model.address" name="address"></textarea>
+            <textarea class="form-control" id="address" required [(ngModel)]="Model.address" name="address" placeholder="PK 81330 Baris Manco Moda"></textarea>
           </div>
           <ng-template #elseBlockAddress>
             <div class="col-sm-9">
@@ -220,7 +225,7 @@
             <label class="col-form-label">Provience</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockProvience" class="col-sm-9">
-            <input class="form-control" id="provience" required [(ngModel)]="Model.provience" name="provience">
+            <input class="form-control" id="provience" required [(ngModel)]="Model.provience" name="provience" placeholder="Levent">
           </div>
           <ng-template #elseBlockProvience>
             <div class="col-sm-9">
@@ -233,7 +238,7 @@
             <label class="col-form-label">City</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockCity" class="col-sm-9">
-            <input class="form-control" id="city" required [(ngModel)]="Model.city" name="city">
+            <input class="form-control" id="city" required [(ngModel)]="Model.city" name="city" placeholder="Istanbul">
           </div>
           <ng-template #elseBlockCity>
             <div class="col-sm-9">
@@ -246,7 +251,7 @@
             <label class="col-form-label">Coordinates</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockCoordinates" class="col-sm-9">
-            <input class="form-control" id="latLong" required [(ngModel)]="Model.latLong" name="latLong">
+            <input class="form-control" id="latLong" required [(ngModel)]="Model.latLong" name="latLong" placeholder="41.0237584,28.9880972">
           </div>
           <ng-template #elseBlockCoordinates>
             <div class="col-sm-9">

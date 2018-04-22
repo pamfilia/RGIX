@@ -30,7 +30,7 @@
         <th scope="row">{{i+1}}</th>
         <td>Company Name Here</td>
         <td>{{item.proposer}}</td>
-        <td>{{item.proposalDate}}</td>
+        <td>{{item.proposalDate | date:"dd MMMM yyyy"}}</td>
         <td>
           <a href="" class="text-warning" data-toggle="modal" data-target="#proposalItemDetail" data-placement="top" title="Edit" (click)="onDetails(item)">
             <i class="material-icons">&#xE254;</i>
