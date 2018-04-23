@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CompanyService } from '../../services/company-service.service';
 import { ICompanyModel } from '../../../../../models/company/ICompanyModel';
 import { BaseComponent } from '../../../../../common/component/BaseComponent';
 import { IItemDetailComponent } from '../../../../../common/component/IItemDetailComponent';
 import { ComponentModeEnum } from '../../../../../common/component/ComponentModeEnum';
+import { IServiceType } from '../../../../../models/service-type/IServiceType';
+import { ServiceTypeComponent } from '../../../../shared/components/service-type/service-type.component';
 
 @Component({
   selector: 'app-company-details',
@@ -15,12 +17,17 @@ export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implem
   Model: ICompanyModel;
   protected addButtonToggle = false;
   SubmitButtonText: string;
+  @ViewChild('serviceType') serviceType: ServiceTypeComponent;
+  @ViewChild('serviceTypeToggle') serviceTypeToggle: ElementRef;
   constructor(private companyService: CompanyService) {
     super();
   }
 
   ngOnInit() {
     if (!this.Model.dangerLevel) { this.Model.dangerLevel = 0; }
+    if (this.componentMode === ComponentModeEnum.Create) {
+      this.Model.serviceTypes = new Array<IServiceType>();
+    }
   }
 
   Bind(data: ICompanyModel, componentMode: ComponentModeEnum) {
@@ -61,5 +68,11 @@ export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implem
   onToggle() {
     this.addButtonToggle = !this.addButtonToggle;
     return this.addButtonToggle;
+  }
+  OnServiceTypeAdded(data: IServiceType) {
+    if (!this.serviceType.SaveMode) {
+      this.serviceTypeToggle.nativeElement.click();
+    }
+    this.Model.serviceTypes.push(data);
   }
 }

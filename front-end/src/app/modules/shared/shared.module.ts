@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PaginatorComponent } from './component/paginator/paginator.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 import { ModalContentHostDirective } from '../../common/directive/ModalContentHost.directive';
-import { ModalComponent } from './component/modal/modal.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { ServiceTypeComponent } from './components/service-type/service-type.component';
 import { NgxMaskModule } from 'ngx-mask';
 import {
   MatFormFieldModule,
@@ -20,7 +21,7 @@ import {
     MatInputModule,
     NgxMaskModule.forRoot({ clearIfNotMatch: true, dropSpecialCharacters: true }),
   ],
-  declarations: [PaginatorComponent, ModalComponent, ModalContentHostDirective],
+  declarations: [PaginatorComponent, ModalComponent, ModalContentHostDirective, ServiceTypeComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -30,6 +31,7 @@ import {
     MatInputModule,
     PaginatorComponent,
     ModalComponent,
+    ServiceTypeComponent,
     ModalContentHostDirective]
 })
 export class SharedModule { }

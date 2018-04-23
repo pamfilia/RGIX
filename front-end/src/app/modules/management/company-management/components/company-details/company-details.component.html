@@ -118,7 +118,8 @@
             <label class="col-form-label">Danger Level</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2;else elseBlockDangerLevel" class="col-sm-9">
-            <select #dangerLevel class="form-control" [ngClass]="{'text-danger':dangerLevel.value==1,'text-warning':dangerLevel.value==2,'text-success':dangerLevel.value==3}" [(ngModel)]="Model.dangerLevel" id="dangerLevel" name="dangerLevel" placeholder="Danger Level">
+            <select #dangerLevel class="form-control" [ngClass]="{'text-danger':dangerLevel.value==1,'text-warning':dangerLevel.value==2,'text-success':dangerLevel.value==3}"
+              [(ngModel)]="Model.dangerLevel" id="dangerLevel" name="dangerLevel" placeholder="Danger Level">
               <option value="0" selected>Please select</option>
               <option value="1">Extreme</option>
               <option value="2">Moderate</option>
@@ -126,7 +127,8 @@
             </select>
           </div>
           <ng-template #elseBlockDangerLevel>
-            <div class="col-sm-9" [ngClass]="{'text-danger':Model?.dangerLevel==1,'text-warning':Model?.dangerLevel==2,'text-success':Model?.dangerLevel==3}" id="dangerLevel" [(ngModel)]="Model.dangerLevel">
+            <div class="col-sm-9" [ngClass]="{'text-danger':Model?.dangerLevel==1,'text-warning':Model?.dangerLevel==2,'text-success':Model?.dangerLevel==3}"
+              id="dangerLevel" [(ngModel)]="Model.dangerLevel">
               {{Model.dangerLevel}}
             </div>
           </ng-template>
@@ -150,7 +152,8 @@
             <label class="col-form-label">Keywords</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockKeywords" class="col-sm-9">
-            <input class="form-control" id="keywords" required [(ngModel)]="Model.keywords" name="keywords" placeholder="Keywords">
+            <tag-input [(ngModel)]="Model.keywords" id="keywords" name="keywords" ></tag-input>
+            <!-- <input class="form-control" id="keywords" required [(ngModel)]="Model.keywords" name="keywords" placeholder="Keywords"> -->
           </div>
           <ng-template #elseBlockKeywords>
             <div class="col-sm-9">
@@ -161,7 +164,7 @@
       </div>
       <!-- TAB-III -->
       <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="services-tab">
-        <app-service-type></app-service-type>
+        <app-service-type #serviceType (OnServiceTypeAdded)="OnServiceTypeAdded($event)"></app-service-type>
         <div class="container-fluid mt-1">
           <div class="row">
             <div class="col-sm-10">
@@ -170,8 +173,8 @@
               </h5>
             </div>
             <div class="col-sm-2">
-              <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" href="#serviceTypeComponent" data-placement="top"
-                title="New" (click)="onToggle()">
+              <button type="button" #serviceTypeToggle class="btn btn-light btn-sm" data-toggle="collapse" href="#serviceTypeComponent"
+                data-placement="top" title="New" (click)="onToggle()">
                 <i class="material-icons" [hidden]="addButtonToggle">&#xE147;</i>
                 <i class="material-icons" [hidden]="!addButtonToggle">&#xE15C;</i>
               </button>
