@@ -1,4 +1,5 @@
 import { IServiceType } from '../service-type/IServiceType';
+import { ITagModel } from '../tag/ITagModel';
 
 export interface ICompanyModel {
     id: string;
@@ -16,5 +17,5 @@ export interface ICompanyModel {
     taxNumber: string;
     totalPersonalCount: number;
     serviceTypes: Array<IServiceType>;
-    keywords: Array<string>;
+    keywords: Array<ITagModel>;
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using OSGB.Data.Common;
 
 namespace OSGB.Data.Entity
@@ -14,7 +15,8 @@ namespace OSGB.Data.Entity
         public string Address { get; set; }
         public string Provience { get; set; }
         public string City { get; set; }
-        public List<string> Keywords { get; set; }
+        [JsonProperty(NullValueHandling=NullValueHandling.Ignore)]
+        public List<Tag> Keywords { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string LatLong { get; set; }

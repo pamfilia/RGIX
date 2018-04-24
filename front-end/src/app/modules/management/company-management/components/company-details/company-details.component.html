@@ -152,8 +152,7 @@
             <label class="col-form-label">Keywords</label>
           </div>
           <div *ngIf="componentMode==1 || componentMode==2; else elseBlockKeywords" class="col-sm-9">
-            <tag-input [(ngModel)]="Model.keywords" id="keywords" name="keywords" ></tag-input>
-            <!-- <input class="form-control" id="keywords" required [(ngModel)]="Model.keywords" name="keywords" placeholder="Keywords"> -->
+            <tag-input [(ngModel)]="Model.keywords" maxItems="5" placeholder="Type text press enter(max 5 tag)" id="keywords" name="keywords"></tag-input>
           </div>
           <ng-template #elseBlockKeywords>
             <div class="col-sm-9">
@@ -196,8 +195,8 @@
                 <th scope="row">{{i+1}}</th>
                 <td>{{item.name}}</td>
                 <td>{{item.details}}</td>
-                <td>{{item.contractStartDate}}</td>
-                <td>{{item.contractEndDate}}</td>
+                <td>{{item.contractStartDate | date:"dd MMMM yyyy"}}</td>
+                <td>{{item.contractEndDate | date:"dd MMMM yyyy"}}</td>
                 <td>
                   <a href="" class="text-danger" data-placement="top" title="Delete" (click)="onServiceTypeDeleted(item)">
                     <i class="material-icons">&#xE92B;</i>
