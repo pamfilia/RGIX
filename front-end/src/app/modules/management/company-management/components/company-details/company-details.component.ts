@@ -75,4 +75,7 @@ export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implem
     }
     this.Model.serviceTypes.push(data);
   }
+  onServiceTypeDeleted(data: IServiceType) {
+    this.Model.serviceTypes.splice(this.Model.serviceTypes.indexOf(data), 1);
+  }
 }

@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Observable';
 import { ModalContentComponent } from '../../../../common/modal/ModalContentComponent';
 import { isNullOrUndefined } from 'util';
 import { ProposalService } from '../../services/proposal.service';
+import { ProposalDetailsComponent } from '../proposal-details/proposal-details.component';
+import { ComponentModeEnum } from '../../../../common/component/ComponentModeEnum';
 
 @Component({
   selector: 'app-proposal',
@@ -55,6 +57,6 @@ export class ProposalComponent extends BaseComponent<IProposalModel> implements 
   }
   onAdd() {
     this.SelectedTitle = 'Add New';
-    // this.SelectedItem = new ModalContentComponent(CompanyDetailsComponent, ComponentModeEnum.Create, null);
+    this.SelectedItem = new ModalContentComponent(ProposalDetailsComponent, ComponentModeEnum.Create, null);
   }
 }

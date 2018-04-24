@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BaseComponent } from '../../../../common/component/BaseComponent';
 import { IInterviewModel } from '../../../../models/interview/IInterviewModel';
 import { IItemDetailComponent } from '../../../../common/component/IItemDetailComponent';
 import { InterviewService } from '../../services/interview-service.service';
 import { ComponentModeEnum } from '../../../../common/component/ComponentModeEnum';
+import { ServiceTypeComponent } from '../../../shared/components/service-type/service-type.component';
+import { IServiceType } from '../../../../models/service-type/IServiceType';
 
 @Component({
   selector: 'app-interview-details',
@@ -14,10 +16,15 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
   Model: IInterviewModel;
   protected addButtonToggle = false;
   SubmitButtonText: string;
+  @ViewChild('serviceType') serviceType: ServiceTypeComponent;
+  @ViewChild('serviceTypeToggle') serviceTypeToggle: ElementRef;
   constructor(private interviewService: InterviewService) {
     super();
   }
   ngOnInit() {
+    if (this.componentMode === ComponentModeEnum.Create) {
+      this.Model.serviceTypes = new Array<IServiceType>();
+    }
   }
   Bind(data: IInterviewModel, componentMode: ComponentModeEnum) {
     this.componentMode = componentMode;
@@ -57,5 +64,14 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
   onToggle() {
     this.addButtonToggle = !this.addButtonToggle;
     return this.addButtonToggle;
+  }
+  OnServiceTypeAdded(data: IServiceType) {
+    if (!this.serviceType.SaveMode) {
+      this.serviceTypeToggle.nativeElement.click();
+    }
+    this.Model.serviceTypes.push(data);
+  }
+  onServiceTypeDeleted(data: IServiceType) {
+    this.Model.serviceTypes.splice(this.Model.serviceTypes.indexOf(data), 1);
   }
 }
