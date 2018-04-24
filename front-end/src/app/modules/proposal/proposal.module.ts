@@ -13,6 +13,7 @@ import { ProposalDetailsComponent } from './components/proposal-details/proposal
   ],
   declarations: [ProposalComponent, ProposalDetailsComponent],
   providers: [ProposalService],
+  exports: [ProposalDetailsComponent],
   entryComponents: [ProposalDetailsComponent]
 })
 export class ProposalModule { }

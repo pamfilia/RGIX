@@ -22,5 +22,6 @@ export class ServiceTypeComponent extends BaseComponent<IServiceType> implements
   onSubmit(saveMode: boolean) {
     this.SaveMode = saveMode;
     this.OnServiceTypeAdded.emit(this.Model);
+    this.Model = <IServiceType>{};
   }
 }

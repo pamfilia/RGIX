@@ -9,12 +9,18 @@ import { ComponentModeEnum } from '../../../../common/component/ComponentModeEnu
 })
 export class ProposalDetailsComponent extends BaseComponent<IProposalModel> implements OnInit {
   Model: IProposalModel;
-
+  @Output('OnProposalAdded') OnProposalAdded = new EventEmitter<IProposalModel>();
+  @Output('SaveMode') SaveMode: boolean;
   constructor() {
     super();
     this.Model = <IProposalModel>{};
   }
 
   ngOnInit() {
+  }
+
+  onSubmit(saveMode: boolean) {
+    this.SaveMode = saveMode;
+    this.OnProposalAdded.emit(this.Model);
   }
 }
