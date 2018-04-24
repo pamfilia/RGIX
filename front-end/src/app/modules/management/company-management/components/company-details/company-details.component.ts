@@ -15,7 +15,7 @@ import { ServiceTypeComponent } from '../../../../shared/components/service-type
 
 export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implements OnInit, IItemDetailComponent {
   Model: ICompanyModel;
-  protected addButtonToggle = false;
+  addButtonToggle = false;
   SubmitButtonText: string;
   @ViewChild('serviceType') serviceType: ServiceTypeComponent;
   @ViewChild('serviceTypeToggle') serviceTypeToggle: ElementRef;

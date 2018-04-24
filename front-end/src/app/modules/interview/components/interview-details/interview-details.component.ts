@@ -14,7 +14,7 @@ import { IServiceType } from '../../../../models/service-type/IServiceType';
 })
 export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> implements OnInit, IItemDetailComponent {
   Model: IInterviewModel;
-  protected addButtonToggle = false;
+  addButtonToggle = false;
   SubmitButtonText: string;
   @ViewChild('serviceType') serviceType: ServiceTypeComponent;
   @ViewChild('serviceTypeToggle') serviceTypeToggle: ElementRef;
