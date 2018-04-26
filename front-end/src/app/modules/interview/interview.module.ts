@@ -12,8 +12,8 @@ import { ProposalModule } from '../proposal/proposal.module';
   imports: [
     CommonModule,
     SharedModule,
-    ProposalModule,
-    InterviewRoutingModule
+    InterviewRoutingModule,
+    ProposalModule
   ],
   declarations: [InterviewComponent, InterviewDetailsComponent],
   providers: [InterviewService],

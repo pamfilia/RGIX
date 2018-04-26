@@ -7,7 +7,8 @@
       </h4>
     </div>
     <div class="col-sm-2">
-      <button type="button" class="btn btn-light btn-sm" data-toggle="tooltip" data-toggle="modal" data-target="#interviewItemDetail" data-placement="top" title="New"  (click)="onAdd()">
+      <button type="button" class="btn btn-light btn-sm" data-toggle="tooltip" data-toggle="modal" data-target="#interviewItemDetail"
+        data-placement="top" title="New" (click)="onAdd()">
         <i class="material-icons">&#xE147;</i>
       </button>
       <button type="button" class="btn btn-light btn-sm" data-toggle="tooltip" data-placement="top" title="Export">
@@ -25,7 +26,7 @@
         <th scope="col">interview Date</th>
         <th scope="col">Interview content</th>
         <th scope="col">Interview Reminder Date</th>
-        <th scope="col">Reminder Closing Date</th>        
+        <th scope="col">Reminder Closing Date</th>
         <th colspan="2" scope="col">Action</th>
       </tr>
     </thead>
@@ -40,12 +41,14 @@
         <td>{{item.interviewReminderDate}}</td>
         <td>{{item.reminderClosingDate}}</td>
         <td>
-          <a href="" class="text-warning" data-toggle="modal" data-target="#interviewItemDetail" data-placement="top" title="Edit" (click)="onDetails(item)">
+          <a href="" class="text-warning" data-toggle="modal" data-target="#interviewItemDetail" data-placement="top" title="Edit"
+            (click)="onDetails(item)">
             <i class="material-icons">&#xE254;</i>
           </a>
         </td>
         <td>
-          <a href="" class="text-danger" data-toggle="modal" data-target="#interviewItemDetail" data-placement="top" title="Delete" (click)="onDelete(item)">
+          <a href="" class="text-danger" data-toggle="modal" data-target="#interviewItemDetail" data-placement="top" title="Delete"
+            (click)="onDelete(item)">
             <i class="material-icons">&#xE92B;</i>
           </a>
         </td>

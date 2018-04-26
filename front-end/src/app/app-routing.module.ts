@@ -5,14 +5,14 @@ import { AppComponent } from './components/app-component/app.component';
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'login', loadChildren: './modules/auth/auth.module#AuthModule' },
-  { path: 'nace-management', loadChildren: './modules/management/nace-management/nace-management.module#NaceManagementModule'},
-  { path: 'company-management', loadChildren: './modules/management/company-management/company-management.module#CompanyManagementModule'},
-  { path: 'interview', loadChildren: './modules/interview/interview.module#InterviewModule'},
-  { path: 'proposal', loadChildren: './modules/proposal/proposal.module#ProposalModule'}
+  { path: 'nace-management', loadChildren: './modules/management/nace-management/nace-management.module#NaceManagementModule' },
+  { path: 'company-management', loadChildren: './modules/management/company-management/company-management.module#CompanyManagementModule' },
+  { path: 'proposal', loadChildren: './modules/proposal/proposal.module#ProposalModule' },
+  { path: 'interview', loadChildren: './modules/interview/interview.module#InterviewModule' }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

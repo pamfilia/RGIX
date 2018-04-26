@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment.prod';
 export class GlobalService {
 
   ApiBaseUrl = environment.production ?
-    'https://osgb.azurewebsites.net/api/' : 'http://localhost:5000/api/';
+    'http://localhost:5000/api/' : 'https://osgb.azurewebsites.net/api/';
   AjaxReqRetryCount = 3;
   constructor() {
     Object.freeze(this);

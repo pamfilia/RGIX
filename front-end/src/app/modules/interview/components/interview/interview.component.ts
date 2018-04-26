@@ -8,7 +8,6 @@ import { ReturnResult } from '../../../../common/service/ReturnResult';
 import { ComponentModeEnum } from '../../../../common/component/ComponentModeEnum';
 import { InterviewDetailsComponent } from '../interview-details/interview-details.component';
 import { isNullOrUndefined } from 'util';
-
 @Component({
   selector: 'app-interview',
   templateUrl: './interview.component.html',

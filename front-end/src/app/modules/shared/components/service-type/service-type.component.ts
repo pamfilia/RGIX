@@ -14,10 +14,10 @@ export class ServiceTypeComponent extends BaseComponent<IServiceType> implements
   @Output('SaveMode') SaveMode: boolean;
   constructor() {
     super();
-    this.Model = <IServiceType>{};
   }
 
   ngOnInit() {
+    this.Model = <IServiceType>{};
   }
   onSubmit(saveMode: boolean) {
     this.SaveMode = saveMode;

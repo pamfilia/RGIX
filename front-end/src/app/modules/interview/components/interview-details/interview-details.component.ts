@@ -6,6 +6,10 @@ import { InterviewService } from '../../services/interview-service.service';
 import { ComponentModeEnum } from '../../../../common/component/ComponentModeEnum';
 import { ServiceTypeComponent } from '../../../shared/components/service-type/service-type.component';
 import { IServiceType } from '../../../../models/service-type/IServiceType';
+import { ProposalDetailsComponent } from '../../../proposal/components/proposal-details/proposal-details.component';
+import { SharedModule } from '../../../shared/shared.module';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-interview-details',
@@ -18,13 +22,15 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
   SubmitButtonText: string;
   @ViewChild('serviceType') serviceType: ServiceTypeComponent;
   @ViewChild('serviceTypeToggle') serviceTypeToggle: ElementRef;
-  constructor(private interviewService: InterviewService) {
+  @ViewChild('proposalDetail') proposalDetail: ProposalDetailsComponent;
+  constructor(private interviewService: InterviewService, private router: Router, private location: Location) {
     super();
   }
   ngOnInit() {
     if (this.componentMode === ComponentModeEnum.Create) {
       this.Model.serviceTypes = new Array<IServiceType>();
     }
+
   }
   Bind(data: IInterviewModel, componentMode: ComponentModeEnum) {
     this.componentMode = componentMode;
@@ -60,6 +66,8 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
         e => console.log(e),
         () => console.log('completed'));
     }
+    /* this.router.navigate(['/interview']);
+    this.interviewService.ReadById(this.Model.id); */
   }
   onToggle() {
     this.addButtonToggle = !this.addButtonToggle;

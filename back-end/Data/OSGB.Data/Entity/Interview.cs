@@ -11,7 +11,7 @@ namespace OSGB.Data.Entity
         public string Interviewee { get; set; }
         public string Interviewed { get; set; }
         public DateTime InterviewDate { get; set; }
-        public List<ServiceType> ServiceType { get; set; }
+        public List<ServiceType> ServiceTypes { get; set; }
         public string InterviewNote { get; set; }
         public DateTime InterviewReminderDate { get; set; }
         public string InterviewReminderNote { get; set; }

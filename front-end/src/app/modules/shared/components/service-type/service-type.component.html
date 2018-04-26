@@ -35,7 +35,7 @@
       </div>
       <div class="col-sm-9">
         <mat-form-field>
-          <input matInput [matDatepicker]="contractStartDate" id="contractStartDate" required [(ngModel)]="Model.contractStartDate" name="contractStartDate">
+          <input matInput [matDatepicker]="contractStartDate" id="contractStartDate" [(ngModel)]="Model.contractStartDate" name="contractStartDate">
           <mat-datepicker-toggle matSuffix [for]="contractStartDate"></mat-datepicker-toggle>
           <mat-datepicker #contractStartDate></mat-datepicker>
         </mat-form-field>
@@ -47,7 +47,7 @@
       </div>
       <div class="col-sm-9">
         <mat-form-field>
-          <input matInput [matDatepicker]="contractEndDate" id="contractEndDate" required [(ngModel)]="Model.contractEndDate" name="contractEndDate">
+          <input matInput [matDatepicker]="contractEndDate" id="contractEndDate" [(ngModel)]="Model.contractEndDate" name="contractEndDate">
           <mat-datepicker-toggle matSuffix [for]="contractEndDate"></mat-datepicker-toggle>
           <mat-datepicker #contractEndDate></mat-datepicker>
         </mat-form-field>

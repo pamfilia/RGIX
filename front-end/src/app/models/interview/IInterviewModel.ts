@@ -1,4 +1,5 @@
 import { IServiceType } from '../service-type/IServiceType';
+import { IProposalModel } from '../proposal/IProposal';
 
 export interface IInterviewModel {
     id: string;
@@ -12,4 +13,5 @@ export interface IInterviewModel {
     reminderClosingDate: string;
     reminderClosingNote: string;
     serviceTypes: Array<IServiceType>;
+    proposalDetail: Array<IProposalModel>;
 }
