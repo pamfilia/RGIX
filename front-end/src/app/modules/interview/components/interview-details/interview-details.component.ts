@@ -6,10 +6,10 @@ import { InterviewService } from '../../services/interview-service.service';
 import { ComponentModeEnum } from '../../../../common/component/ComponentModeEnum';
 import { ServiceTypeComponent } from '../../../shared/components/service-type/service-type.component';
 import { IServiceType } from '../../../../models/service-type/IServiceType';
-import { ProposalDetailsComponent } from '../../../proposal/components/proposal-details/proposal-details.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { IProposalModel } from '../../../../models/proposal/IProposal';
 
 @Component({
   selector: 'app-interview-details',
@@ -18,17 +18,20 @@ import { Location } from '@angular/common';
 })
 export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> implements OnInit, IItemDetailComponent {
   Model: IInterviewModel;
+  proposalModel: IProposalModel;
+  proposalServiceType: IServiceType;
   addButtonToggle = false;
   SubmitButtonText: string;
   @ViewChild('serviceType') serviceType: ServiceTypeComponent;
   @ViewChild('serviceTypeToggle') serviceTypeToggle: ElementRef;
-  @ViewChild('proposalDetail') proposalDetail: ProposalDetailsComponent;
   constructor(private interviewService: InterviewService, private router: Router, private location: Location) {
     super();
   }
   ngOnInit() {
     if (this.componentMode === ComponentModeEnum.Create) {
       this.Model.serviceTypes = new Array<IServiceType>();
+      this.Model.proposalDetail = new Array<IProposalModel>();
+      this.proposalModel.serviceTypes = new Array<IServiceType>();
     }
 
   }
@@ -46,6 +49,8 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
         break;
     }
     this.Model = data ? data : <IInterviewModel>{};
+    this.proposalModel = <IProposalModel>{};
+    this.proposalServiceType = <IServiceType>{};
   }
   onSubmit() {
     if (this.componentMode === ComponentModeEnum.Create) {
@@ -81,5 +86,22 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
   }
   onServiceTypeDeleted(data: IServiceType) {
     this.Model.serviceTypes.splice(this.Model.serviceTypes.indexOf(data), 1);
+  }
+  onAlert(item: IServiceType, rowORder: number) {
+    alert(item.name + ' : row order : ' + rowORder);
+  }
+  onProposalServiceTypeAdded(data: IServiceType) {
+    this.proposalModel.serviceTypes.push(data);
+    this.proposalServiceType = <IServiceType>{};
+  }
+  onProposalServiceTypeDeleted(data: IServiceType) {
+    this.Model.serviceTypes.splice(this.Model.serviceTypes.indexOf(data), 1);
+  }
+  onProposalAdded(data: IProposalModel) {
+    this.Model.proposalDetail.push(data);
+    this.proposalModel = <IProposalModel>{};
+  }
+  onProposalDeleted(data: IProposalModel) {
+    this.Model.proposalDetail.splice(this.Model.proposalDetail.indexOf(data), 1);
   }
 }
