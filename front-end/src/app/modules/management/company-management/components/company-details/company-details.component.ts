@@ -25,8 +25,8 @@ export class CompanyDetailsComponent extends BaseComponent<ICompanyModel> implem
 
   ngOnInit() {
     if (!this.Model.dangerLevel) { this.Model.dangerLevel = 0; }
-    if (this.componentMode === ComponentModeEnum.Create) {
-      this.Model.serviceTypes = new Array<IServiceType>();
+    if (this.componentMode === ComponentModeEnum.Create || this.componentMode === ComponentModeEnum.Edit) {
+      if (this.Model.serviceTypes === undefined) { this.Model.serviceTypes = new Array<IServiceType>(); }
     }
   }
 

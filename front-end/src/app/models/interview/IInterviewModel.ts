@@ -13,5 +13,5 @@ export interface IInterviewModel {
     reminderClosingDate: string;
     reminderClosingNote: string;
     serviceTypes: Array<IServiceType>;
-    proposalDetail: Array<IProposalModel>;
+    proposals: Array<IProposalModel>;
 }

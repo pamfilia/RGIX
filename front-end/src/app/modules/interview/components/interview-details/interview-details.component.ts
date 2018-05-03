@@ -28,10 +28,14 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
     super();
   }
   ngOnInit() {
-    if (this.componentMode === ComponentModeEnum.Create) {
-      this.Model.serviceTypes = new Array<IServiceType>();
-      this.Model.proposalDetail = new Array<IProposalModel>();
-      this.proposalModel.serviceTypes = new Array<IServiceType>();
+    if (this.componentMode === ComponentModeEnum.Create || this.componentMode === ComponentModeEnum.Edit) {
+      if (this.Model.serviceTypes === undefined || this.Model.serviceTypes === null) {
+        this.Model.serviceTypes = new Array<IServiceType>();
+      }
+      if (this.Model.proposals === undefined || this.Model.proposals === null) { this.Model.proposals = new Array<IProposalModel>(); }
+      if (this.proposalModel.serviceTypes === undefined || this.proposalModel.serviceTypes === undefined) {
+        this.proposalModel.serviceTypes = new Array<IServiceType>();
+      }
     }
 
   }
@@ -98,10 +102,10 @@ export class InterviewDetailsComponent extends BaseComponent<IInterviewModel> im
     this.Model.serviceTypes.splice(this.Model.serviceTypes.indexOf(data), 1);
   }
   onProposalAdded(data: IProposalModel) {
-    this.Model.proposalDetail.push(data);
+    this.Model.proposals.push(data);
     this.proposalModel = <IProposalModel>{};
   }
   onProposalDeleted(data: IProposalModel) {
-    this.Model.proposalDetail.splice(this.Model.proposalDetail.indexOf(data), 1);
+    this.Model.proposals.splice(this.Model.proposals.indexOf(data), 1);
   }
 }
